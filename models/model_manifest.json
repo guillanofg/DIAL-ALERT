@@ -1,0 +1,58 @@
+{
+  "created_at_utc": "2026-09-16T18:04:42.498570+00:00",
+  "python_version": "3.12.14",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "package_versions": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "scikit_learn": "1.8.0",
+    "joblib": "1.5.3"
+  },
+  "data_file": "data/processed/hemobp_session_level.csv.gz",
+  "data_sha256": "f4a4b7268b5607eb7be0c5cdc690477b1f169a2d9ace0f4cc1de2b44d3eaa4a7",
+  "config_file": "configs/model_config.json",
+  "config_sha256": "3076349b8a5f02728fddc3033e0ddb7e71e82b5a7dd4eee25f29a855202926ec",
+  "random_state": 42,
+  "n_jobs": 2,
+  "grouped_cv_folds": 3,
+  "split_seed": 30,
+  "selected_model": "Random forest",
+  "selected_calibration": "none",
+  "model_files": [
+    {
+      "file": "models/candidate_logistic_regression.joblib",
+      "size_bytes": 6134,
+      "sha256": "cb783a6bbd5ad503c604109804c47c4e9b793932f853846a96f6ff014de0deba"
+    },
+    {
+      "file": "models/candidate_l1_feature_selection.joblib",
+      "size_bytes": 6870,
+      "sha256": "063f8085842779394cefdf76fa0eec0b95318c89f006f745e543659a4baf8917"
+    },
+    {
+      "file": "models/candidate_decision_tree.joblib",
+      "size_bytes": 24516,
+      "sha256": "f94c7c8922e484fb726e76f81e72184179a5584fd8ebd44dccb6025d2e39d503"
+    },
+    {
+      "file": "models/candidate_pca_logistic_regression.joblib",
+      "size_bytes": 8982,
+      "sha256": "74ee4428613aa33bf1e2e4efa5d79be992c0b971aa41fbf908341ace4f15202c"
+    },
+    {
+      "file": "models/candidate_histogram_gradient_boosting.joblib",
+      "size_bytes": 274434,
+      "sha256": "de20aac6050fb623ed574e2e1771e3dbc951fef370594e0d53dccc95340c57f8"
+    },
+    {
+      "file": "models/dial_alert_final_predictor.joblib",
+      "size_bytes": 5565163,
+      "sha256": "efb0f4d44b6569838259728d164b22e87e43bd73f058882a8491aba82639aa75"
+    },
+    {
+      "file": "models/decision_threshold.json",
+      "size_bytes": 565,
+      "sha256": "b161b72504cdedbd9dac3e485cc69014d53c4c92b7d4d3c785d537933ed10deb"
+    }
+  ]
+}

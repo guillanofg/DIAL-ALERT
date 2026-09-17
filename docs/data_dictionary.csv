@@ -1,0 +1,41 @@
+variable,type,units_or_values,definition,analysis_role
+pid,string,Identifier,De-identified patient identifier,Grouping and split only; never a predictor
+session_date,date,Date,Date used to link a dialysis session across source tables,Identifier and temporal audit
+index_datetime,datetime,Timestamp,Timestamp of the earliest valid active-dialysis record within 30 minutes,Index-time documentation
+index_minute,numeric,minutes,Elapsed dialysis minute at the index record,Cohort audit; not a predictor
+baseline_sbp,numeric,mmHg,Systolic BP at the index record,Predictor
+baseline_dbp,numeric,mmHg,Diastolic BP at the index record,Predictor
+initial_dialysate_temp_c,numeric,degrees Celsius,Dialysate temperature at the index record,Predictor
+initial_conductivity_ms_cm,numeric,mS/cm,Dialysate conductivity at the index record,Predictor
+initial_uf_l_h,numeric,L/hour,Ultrafiltration rate at the index record,Predictor
+initial_blood_flow_ml_min,numeric,mL/min,Blood-flow rate at the index record,Predictor
+later_records,integer,records,Number of records after the index measurement,Outcome-quality audit; not a predictor
+later_distinct_minutes,integer,distinct minutes,Distinct elapsed-time values after the index measurement,Eligibility; not a predictor
+last_observed_minute,numeric,minutes,Latest elapsed dialysis time recorded after index,Eligibility; not a predictor
+nadir_sbp,numeric,mmHg,Lowest SBP recorded after index,Outcome derivation; never a predictor
+mean_later_sbp,numeric,mmHg,Mean SBP after index,Outcome description; never a predictor
+idh_absolute,binary,0 or 1,Later SBP below 90 mmHg,Primary outcome
+idh_drop_20,binary,0 or 1,Later SBP at least 20 mmHg below baseline,Sensitivity outcome
+idh_flythe,binary,0 or 1,"Later nadir below 90 mmHg when baseline is below 160, otherwise below 100",Sensitivity outcome
+dialysisstart,time,Clock time,Recorded dialysis start time,Audit; not a predictor
+dialysisend,time,Clock time,Recorded dialysis end time,Post-index field; excluded
+weightstart,numeric,kg,Body weight before dialysis,Predictor
+weightend,numeric,kg,Body weight after dialysis,Post-index field; excluded
+dryweight,numeric,kg,Prescribed dry weight,Predictor
+temperature,numeric,degrees Celsius,Body temperature recorded for the session,Predictor
+gender,categorical,F or M,Recorded sex field in the source data,Predictor and fairness audit
+birthday,integer,year,Recorded birth year,Used to derive age; excluded directly
+first_dialysis,date,Year and month,Recorded month of first dialysis,Used to derive vintage
+DM,binary,0 or 1,Recorded diabetes status,Predictor and subgroup audit
+age_years,numeric,years,Session year minus birth year,Predictor and fairness audit
+dialysis_vintage_years,numeric,years,Time from first dialysis to session date,Predictor
+fluid_excess_kg,numeric,kg,Predialysis weight minus dry weight,Engineered predictor
+fluid_excess_pct,numeric,percent of dry weight,Fluid excess divided by dry weight,Engineered predictor
+initial_uf_ml_kg_h,numeric,mL/kg/hour,Initial UF rate normalized by predialysis weight,Engineered predictor
+baseline_map,numeric,mmHg,DBP plus one-third of pulse pressure,Engineered predictor
+baseline_pulse_pressure,numeric,mmHg,Baseline SBP minus DBP,Engineered predictor
+session_year,integer,year,Calendar year of the session,Temporal audit; excluded from model
+prior_session_idh,binary,0 or 1,Primary outcome in the immediately preceding observed session,History predictor; earlier sessions only
+prior_nadir_sbp,numeric,mmHg,Later nadir SBP in the preceding observed session,History predictor; earlier sessions only
+prior_session_count,integer,sessions,Number of earlier eligible sessions for the patient,History predictor; log transformed
+prior_idh_rate,numeric,0 to 1,Cumulative BP-defined IDH rate across earlier sessions,History predictor; earlier sessions only

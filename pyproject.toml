@@ -1,0 +1,14 @@
+[project]
+name = "dial-alert"
+version = "1.0.0"
+description = "Academic early-warning prototype for blood-pressure-defined intradialytic hypotension"
+requires-python = ">=3.12,<3.13"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Franklin B. Guillano" }
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+

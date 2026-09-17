@@ -1,0 +1,124 @@
+{
+  "files": [
+    {
+      "file": "README_Step4.md",
+      "size_bytes": 2809,
+      "sha256": "095c07a2399f811e00cba93d2ec68f01b1fb9ae3ed0db7222b5110c0b0597fad"
+    },
+    {
+      "file": "requirements-step4.txt",
+      "size_bytes": 110,
+      "sha256": "a101e2685063d6c892c37cf59fe12bd2765ce7c7b81523d1f7f94da217258377"
+    },
+    {
+      "file": "src/build_session_dataset.py",
+      "size_bytes": 10175,
+      "sha256": "ce48d899ed542414c4224cce66e90d3aa5df3293f17465020b1e80ff01db7ba3"
+    },
+    {
+      "file": "src/train_evaluate.py",
+      "size_bytes": 40691,
+      "sha256": "32ba657279ec0c08e079bc801fe52587bd247f5920ad55af236b6a2422714ea6"
+    },
+    {
+      "file": "src/generate_step4_assets.py",
+      "size_bytes": 7699,
+      "sha256": "eb01e80905b47c66049c8573eeb142adde695e133903ef00ab58ef21b8949dd2"
+    },
+    {
+      "file": "src/predict.py",
+      "size_bytes": 1844,
+      "sha256": "e0a527860344e7de79c375238332eea953223e275aa1354ebb8a73a07c2d901f"
+    },
+    {
+      "file": "configs/model_config.json",
+      "size_bytes": 752,
+      "sha256": "3076349b8a5f02728fddc3033e0ddb7e71e82b5a7dd4eee25f29a855202926ec"
+    },
+    {
+      "file": "models/model_manifest.json",
+      "size_bytes": 2000,
+      "sha256": "8b15a84e1b43b524a1d780e910f4a8e7b0d693498414c8b11e5c10a3862b6803"
+    },
+    {
+      "file": "models/candidate_logistic_regression.joblib",
+      "size_bytes": 6134,
+      "sha256": "cb783a6bbd5ad503c604109804c47c4e9b793932f853846a96f6ff014de0deba"
+    },
+    {
+      "file": "models/candidate_l1_feature_selection.joblib",
+      "size_bytes": 6870,
+      "sha256": "063f8085842779394cefdf76fa0eec0b95318c89f006f745e543659a4baf8917"
+    },
+    {
+      "file": "models/candidate_decision_tree.joblib",
+      "size_bytes": 24516,
+      "sha256": "f94c7c8922e484fb726e76f81e72184179a5584fd8ebd44dccb6025d2e39d503"
+    },
+    {
+      "file": "models/candidate_pca_logistic_regression.joblib",
+      "size_bytes": 8982,
+      "sha256": "74ee4428613aa33bf1e2e4efa5d79be992c0b971aa41fbf908341ace4f15202c"
+    },
+    {
+      "file": "models/candidate_histogram_gradient_boosting.joblib",
+      "size_bytes": 274434,
+      "sha256": "de20aac6050fb623ed574e2e1771e3dbc951fef370594e0d53dccc95340c57f8"
+    },
+    {
+      "file": "models/dial_alert_final_predictor.joblib",
+      "size_bytes": 41131899,
+      "sha256": "c4221f0e98b4575d4b48545d493c95912911a4f0d945dac57ebd79d0043312f9"
+    },
+    {
+      "file": "models/decision_threshold.json",
+      "size_bytes": 565,
+      "sha256": "b161b72504cdedbd9dac3e485cc69014d53c4c92b7d4d3c785d537933ed10deb"
+    },
+    {
+      "file": "artifacts/split_summary.csv",
+      "size_bytes": 172,
+      "sha256": "66d0889123ca8d7bc271c15c82d3fa5bc7a69a6c962caa1c9f08c51d1c88b99c"
+    },
+    {
+      "file": "artifacts/split_metadata.json",
+      "size_bytes": 25,
+      "sha256": "da81ba25b690c6595631cd25274eedb4aa39a215baa8a1f4bc06899d928af645"
+    },
+    {
+      "file": "artifacts/model_comparison.csv",
+      "size_bytes": 3617,
+      "sha256": "1e2255d0c200989db5dead30a88a5fa6f15ab1a10ff34b770731f7e3331180b9"
+    },
+    {
+      "file": "artifacts/cv_search_top_results.csv",
+      "size_bytes": 17091,
+      "sha256": "b62058cd43f5d316780f9019d9fbc2868a873bd4a7787f16fb16fd727615560b"
+    },
+    {
+      "file": "artifacts/calibration_method_comparison.csv",
+      "size_bytes": 275,
+      "sha256": "c1bcd924fba06635d53dc3bef4c789433038d7e6171a80b82dea291e9091f69c"
+    },
+    {
+      "file": "artifacts/final_test_metrics.json",
+      "size_bytes": 1833,
+      "sha256": "fd183e3d3c2aca888d9bb9b7f4970b2c89028bde89133127d9f8d25a52476690"
+    },
+    {
+      "file": "artifacts/test_metric_confidence_intervals.csv",
+      "size_bytes": 1200,
+      "sha256": "82da5a769820dc72211e67f01339844f9c4ad330bf3d9afb77d66d5aedab8ea9"
+    },
+    {
+      "file": "artifacts/capacity_metrics.csv",
+      "size_bytes": 1002,
+      "sha256": "bdca04530cdd172c77f4aa97d766763d66c7492db8879b22073ba7f34c2ffeb1"
+    },
+    {
+      "file": "artifacts/permutation_importance.csv",
+      "size_bytes": 1332,
+      "sha256": "a72c26e9296ee34aa718c708986e8e3e4c87b35d0e4940fdd8fc6f5e90553590"
+    }
+  ]
+}

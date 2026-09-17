@@ -1,0 +1,11 @@
+{
+  "weighted_r2": 0.6782277973246789,
+  "model_prediction": 0.6907337391575376,
+  "surrogate_prediction": 0.6658702308878941,
+  "absolute_prediction_error": 0.024863508269643453,
+  "samples": 2500,
+  "kernel_width": 0.75,
+  "scenario_type": "synthetic",
+  "not_a_patient_record": true,
+  "scenario_file": "artifacts/step5_shap_local_synthetic.csv"
+}

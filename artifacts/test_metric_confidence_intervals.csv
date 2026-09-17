@@ -1,0 +1,11 @@
+metric,estimate,ci_lower_95,ci_upper_95,method
+average_precision,0.3947805460447429,0.30553038470213406,0.4776855451739038,Patient-cluster bootstrap with 500 resamples
+roc_auc,0.852459701581806,0.8208020463700715,0.8761771274500305,Patient-cluster bootstrap with 500 resamples
+brier_score,0.06211521483278726,0.04910502607771957,0.076608362430038,Patient-cluster bootstrap with 500 resamples
+sensitivity,0.6609702315325248,0.5497036108372219,0.7445057074467689,Patient-cluster bootstrap with 500 resamples
+specificity,0.860849539406346,0.8061281557416998,0.9030664214598458,Patient-cluster bootstrap with 500 resamples
+precision,0.3060234813680449,0.2601788022404136,0.3525703849521142,Patient-cluster bootstrap with 500 resamples
+f1,0.41835310537334264,0.3594468287813219,0.4733564419561323,Patient-cluster bootstrap with 500 resamples
+precision_at_capacity,0.29360805431983145,0.2192113755367023,0.38195893917233065,Patient-cluster bootstrap with 500 resamples
+recall_at_capacity,0.6912899669239251,0.6318550479720514,0.74358051341338,Patient-cluster bootstrap with 500 resamples
+lift_at_capacity,3.456287977919339,3.1591889674245732,3.7172304591980025,Patient-cluster bootstrap with 500 resamples

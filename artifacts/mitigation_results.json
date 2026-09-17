@@ -1,0 +1,33 @@
+{
+  "method": "Training-sample reweighting across sex and outcome combinations",
+  "overall_metrics": {
+    "average_precision": 0.3936424322860827,
+    "roc_auc": 0.8513926426892394,
+    "brier_score": 0.0622199207371723,
+    "log_loss": 0.2179812948939871,
+    "threshold": 0.1428558780357408,
+    "accuracy": 0.8451812306827761,
+    "sensitivity": 0.6664829106945975,
+    "specificity": 0.8617707267144319,
+    "precision": 0.3092071611253197,
+    "f1": 0.4224318658280922,
+    "tn": 16839,
+    "fp": 2701,
+    "fn": 605,
+    "tp": 1209,
+    "alert_capacity": 0.2,
+    "selected_sessions": 4271,
+    "precision_at_capacity": 0.2926715055022243,
+    "recall_at_capacity": 0.6890848952590959,
+    "lift_at_capacity": 3.4452631358845087,
+    "false_alerts_per_100_sessions": 14.147232368642879
+  },
+  "fairness_summary": {
+    "attribute": "Sex reweighted model",
+    "demographic_parity_difference": 0.04876742581940188,
+    "disparate_impact_ratio": 0.763535915843289,
+    "equal_opportunity_difference": 0.05822303576457344,
+    "false_positive_rate_difference": 0.035173436912731754,
+    "equalized_odds_difference": 0.05822303576457344
+  }
+}

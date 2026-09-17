@@ -1,0 +1,7 @@
+risk,evidence,assessment,response
+Class imbalance,Test prevalence 8.495%; no-skill average precision equals prevalence,Material,"Use average precision, sensitivity, precision, calibration, and workload metrics rather than accuracy alone"
+Patient leakage,"Patient overlaps train-validation-test: {'training_validation': 0, 'training_test': 0, 'validation_test': 0}",Controlled in internal evaluation,Retain patient-disjoint splits and grouped cross-validation
+Temporal leakage,Only index-time or lagged prior-session predictors are used; subsequent blood pressures define the outcome,Controlled by feature design,Preserve the prediction-time boundary in production feature pipelines
+Overfitting or optimism,"Grouped-CV AP 0.440, validation AP 0.470, test AP 0.395",Residual concern,Report patient-bootstrap intervals and require external temporal and geographic validation
+Probability miscalibration,Test Brier score 0.062; calibration weakens in sparsely populated high-risk bins,Monitor,Recalibrate only on new local validation data and monitor calibration drift
+Repeated-session dominance,"21,354 test sessions arise from 170 patients",Material,Use patient-cluster bootstrap intervals and patient-equal-weight sensitivity analyses

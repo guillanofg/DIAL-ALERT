@@ -1,0 +1,8 @@
+{
+  "mean_signed_probability_change": 0.001188906830626852,
+  "mean_absolute_probability_change": 0.007036370888051813,
+  "median_absolute_probability_change": 0.0047618017694450775,
+  "maximum_absolute_probability_change": 0.05486496180550837,
+  "alert_class_changed_percent": 1.348693453217196,
+  "interpretation": "Associational diagnostic only; holding correlated physiology fixed is not a causal intervention on sex."
+}

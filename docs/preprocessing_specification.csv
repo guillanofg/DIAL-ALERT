@@ -1,0 +1,9 @@
+input,transformation,implementation,justification
+Numeric predictors,Median imputation,Fit inside each training fold,Robust to skew and prevents validation leakage
+Categorical predictors,Most-frequent imputation,Fit inside each training fold,Provides a deterministic category for missing values
+Gender and diabetes,One-hot encoding,Unknown categories ignored,Converts nominal fields without imposing an ordinal scale
+Linear and PCA numeric inputs,StandardScaler,Fit inside each training fold,Places coefficients and principal components on comparable scales
+Tree-model numeric inputs,No scaling,Original measurement scale retained,Tree splits do not require standardisation
+Prior session count,log1p transformation,Before model-specific scaling,Reduces right skew while retaining zero-history sessions
+EDA relationship plots,Outcome-blind quantile bins,Diagnostic only,Reveals nonlinear associations without becoming a model input
+Plausible extreme values,Retained after documented bounds,IQR flags reported separately,Avoids deleting clinically possible high-risk observations

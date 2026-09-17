@@ -1,0 +1,12 @@
+engineered_feature,formula,rationale
+age_years,session year - birth year,Age at each treatment session
+dialysis_vintage_years,(session date - first dialysis date) / 365.25,Duration of dialysis exposure
+fluid_excess_kg,predialysis weight - prescribed dry weight,Absolute excess fluid before treatment
+fluid_excess_pct,100 x fluid excess / dry weight,Patient-size-normalized fluid excess
+initial_uf_ml_kg_h,1000 x initial UF L/hour / predialysis weight,Patient-size-normalized initial UF intensity
+baseline_map,DBP + (SBP - DBP) / 3,Mean arterial pressure approximation
+baseline_pulse_pressure,SBP - DBP,Arterial pulse-pressure estimate
+prior_session_idh,previous eligible session outcome,Recent within-patient instability history
+prior_nadir_sbp,previous eligible session later nadir SBP,Previous-session BP tolerance
+prior_idh_rate,cumulative earlier IDH events / earlier sessions,Longitudinal recurrence burden
+prior_session_count,number of earlier eligible sessions,Available history depth; log transformed before modelling

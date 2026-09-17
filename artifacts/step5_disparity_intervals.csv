@@ -1,0 +1,22 @@
+attribute,metric,lower_95,upper_95
+Age group,demographic_parity_difference,0.044395796665308324,0.3137748032252847
+Age group,disparate_impact_ratio,0.20494624991689372,0.7536667179720412
+Age group,equal_opportunity_difference,0.06347980473221813,0.4528936369559792
+Age group,false_positive_rate_difference,0.0354812892058732,0.2580735299707976
+Age group,equalized_odds_difference,0.09093745918314611,0.4528936369559792
+Age group,predictive_parity_difference,0.02849438489942978,0.24538577750519017
+Age group,brier_score_difference,0.011314465760756294,0.07312032243828664
+Diabetes status,demographic_parity_difference,0.0013623618601866408,0.14636475585679604
+Diabetes status,disparate_impact_ratio,0.4212316622214869,0.9921042648701689
+Diabetes status,equal_opportunity_difference,0.008464440665578693,0.31447596359601065
+Diabetes status,false_positive_rate_difference,0.0020559032501869896,0.12130777376959438
+Diabetes status,equalized_odds_difference,0.02368115811101236,0.31447596359601065
+Diabetes status,predictive_parity_difference,0.002328481609606789,0.13107949497988516
+Diabetes status,brier_score_difference,0.0004727561588514128,0.04063910595175109
+Recorded sex,demographic_parity_difference,0.0020193202438056825,0.1928376551860715
+Recorded sex,disparate_impact_ratio,0.3492556224842593,0.987943113225526
+Recorded sex,equal_opportunity_difference,0.005559179038276556,0.3126783169765728
+Recorded sex,false_positive_rate_difference,0.0019262528921432914,0.1456543177521757
+Recorded sex,equalized_odds_difference,0.015329040105604777,0.3126783169765728
+Recorded sex,predictive_parity_difference,0.0012279631123878463,0.12902587490423142
+Recorded sex,brier_score_difference,0.0007303111709426136,0.043831796697858125

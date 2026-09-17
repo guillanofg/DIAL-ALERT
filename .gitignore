@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Generated and temporary files
+tmp/
+.chart-data-*/
+workbook_build.log
+predictions.csv
+*.inspect.ndjson
+artifacts/shap_error.txt
+
+# Patient-level partition assignments are regenerated from the fixed split seed
+artifacts/split_assignments.csv.gz
+
+# Detailed source-audit intermediates are regenerated locally; publish the
+# summarized report and data dictionaries instead.
+artifacts/step2_dataset_audit.json
+artifacts/step2_dictionary_rows.json
+
+# Detailed subgroup count tables are regenerated during the Step 5 audit and
+# validated locally. Publish the aggregate disparities, confidence intervals,
+# mitigation comparison, explainability outputs, and reports instead.
+artifacts/step5_group_metrics.csv
+artifacts/step5_group_metric_intervals.csv
+artifacts/step5_intersectional_metrics.csv
+artifacts/step5_original_model_sex_metrics.csv
+artifacts/step5_patient_weighted_group_metrics.csv
+artifacts/step5_sex_outcome_reweighting_sex_metrics.csv
+artifacts/step5_sex_specific_thresholds_sex_metrics.csv
+artifacts/step5_synthetic_case.json
+artifacts/subgroup_prevalence.csv
+
+# Source and processed data are downloaded or regenerated locally
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/README.md
+data/processed/*
+!data/processed/.gitkeep
+!data/processed/README.md
+
+# Keep the selected predictor; exclude redundant fitted candidates
+models/*.joblib
+!models/dial_alert_final_predictor.joblib
+
+# Submission bundles duplicate tracked files
+reports/*.zip
+
+# Operating system and editor files
+.DS_Store
+.idea/
+.vscode/

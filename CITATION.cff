@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the project and the HEMOBP dataset."
+title: "DIAL-ALERT"
+type: software
+version: 1.0.0
+date-released: 2026-09-17
+license: MIT
+authors:
+  - family-names: Guillano
+    given-names: Franklin B.
+abstract: >-
+  A reproducible academic machine-learning prototype for predicting a later
+  blood-pressure-defined intradialytic hypotension event from information
+  available early in a haemodialysis session.
+references:
+  - type: article
+    title: "Dataset supporting blood pressure prediction for the management of chronic hemodialysis"
+    authors:
+      - family-names: Lin
+        given-names: Chih-Jen
+      - family-names: Chen
+        given-names: Yu-Yi
+      - family-names: Pan
+        given-names: Chien-Feng
+      - family-names: Wu
+        given-names: Vin-Cent
+      - family-names: Wu
+        given-names: Chih-Jen
+    journal: Scientific Data
+    year: 2019
+    volume: 6
+    doi: 10.1038/s41597-019-0319-8
+

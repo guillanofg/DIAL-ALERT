@@ -1,0 +1,17 @@
+stage,records_or_sessions,action
+Raw patient table,1072,Retained as the source of patient-level characteristics
+Raw session table,165986,Inspected dates and patient-day keys
+Session rows with missing dates removed,128,Excluded because no session date was available for linkage
+Duplicate patient-day session rows removed,9,Stable chronological rule retained the first row per patient-day
+Valid unique patient-days,165849,Used as the session linkage frame
+Raw monitoring records,4366298,Linked by patient and calendar date
+Linked monitoring records,2228411,"Screened against the documented SBP, DBP, and elapsed-time envelope"
+Linked monitoring rows outside bounds removed,0,Excluded only when outside the documented source envelope
+Exact linked monitoring duplicates removed,0,Exact duplicate records only; repeated valid readings were preserved
+Linked patient-days,110790,Required a valid active-dialysis index record
+Patient-days with index record,108781,Required at least one record after the index time
+Sessions with post-index records,108680,Applied sequential outcome-eligibility criteria
+Sessions removed for baseline SBP below 90,1375,Excluded prevalent hypotension at prediction time
+Sessions removed for fewer than two later minutes,116,Reduced false negatives from sparse follow-up
+Sessions removed for follow-up below 120 minutes,431,Reduced false negatives from truncated observation
+Final eligible sessions,106758,Used for EDA and modelling

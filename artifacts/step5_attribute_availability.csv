@@ -1,0 +1,6 @@
+attribute,source,availability,missing_percent,audit_use,limitation
+Recorded sex,gender field with F and M categories,Available,0.0,Primary protected-attribute audit,Binary recorded field does not represent gender identity or variation beyond F and M
+Age,Derived age_years,Available,0.0,Four prespecified age bands,Age groups simplify a continuous and time-varying characteristic
+Race or ethnicity,Not collected in the public dataset,Unavailable,100.0,Not auditable,Fairness across racial and ethnic groups cannot be assessed
+Socioeconomic status,"No income, education, insurance, occupation, or area-deprivation field",Unavailable,100.0,Not auditable,Diabetes and dialysis vintage are not treated as socioeconomic proxies
+Diabetes status,DM field,Available,0.0,Clinical subgroup audit,"Clinical risk factor, not a substitute for socioeconomic status"

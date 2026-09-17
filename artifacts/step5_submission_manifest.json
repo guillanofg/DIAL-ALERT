@@ -1,0 +1,203 @@
+{
+  "project": "DIAL-ALERT",
+  "step": 5,
+  "title": "Ethical AI and Bias Auditing",
+  "file_count": 39,
+  "files": [
+    {
+      "path": "README_Step5.md",
+      "bytes": 5333,
+      "sha256": "c5ed7aa49215ab668f04646e181a6012345e295027387e3e883266d17ce87f5d"
+    },
+    {
+      "path": "requirements-step5.txt",
+      "bytes": 116,
+      "sha256": "361491db8847f43137d60dfa4b4f0a9a8976b57ef3d4b9bf6f06ad6ea0814ee6"
+    },
+    {
+      "path": "src/audit_bias_fairness.py",
+      "bytes": 47015,
+      "sha256": "8a373a94ea816de168a64320220e418ec21cea4cd6f0d5e1bba4fec0f97c1812"
+    },
+    {
+      "path": "src/create_bias_fairness_report.py",
+      "bytes": 40751,
+      "sha256": "dc24d706a0aacda8ddf507db09e7a07042d0e41971d35628fd658adca536e98b"
+    },
+    {
+      "path": "src/create_eda_report.py",
+      "bytes": 43037,
+      "sha256": "a666242d01dd13bfbe90a32fd9befda54a1a89154e16d83e8455ffab96590bef"
+    },
+    {
+      "path": "src/build_session_dataset.py",
+      "bytes": 10175,
+      "sha256": "ce48d899ed542414c4224cce66e90d3aa5df3293f17465020b1e80ff01db7ba3"
+    },
+    {
+      "path": "src/train_evaluate.py",
+      "bytes": 41030,
+      "sha256": "135217f9bef7a606a53f6b1e690e617f1e3531007b2465b14e23cdf7519f9381"
+    },
+    {
+      "path": "src/predict.py",
+      "bytes": 1844,
+      "sha256": "e0a527860344e7de79c375238332eea953223e275aa1354ebb8a73a07c2d901f"
+    },
+    {
+      "path": "src/finalize_step5.py",
+      "bytes": 6435,
+      "sha256": "24e17628337c585afd4ea040cd3c9175c0520cf5745a48ded2f26d29a7ebcecd"
+    },
+    {
+      "path": "configs/model_config.json",
+      "bytes": 752,
+      "sha256": "3076349b8a5f02728fddc3033e0ddb7e71e82b5a7dd4eee25f29a855202926ec"
+    },
+    {
+      "path": "artifacts/split_metadata.json",
+      "bytes": 25,
+      "sha256": "da81ba25b690c6595631cd25274eedb4aa39a215baa8a1f4bc06899d928af645"
+    },
+    {
+      "path": "artifacts/model_comparison.csv",
+      "bytes": 3617,
+      "sha256": "1e2255d0c200989db5dead30a88a5fa6f15ab1a10ff34b770731f7e3331180b9"
+    },
+    {
+      "path": "artifacts/final_test_metrics.json",
+      "bytes": 1833,
+      "sha256": "fd183e3d3c2aca888d9bb9b7f4970b2c89028bde89133127d9f8d25a52476690"
+    },
+    {
+      "path": "artifacts/step5_disparities.csv",
+      "bytes": 664,
+      "sha256": "de26a4554effcc6c199be7205d68f7e95ec09289579c6bac3a9e8c65aeb81897"
+    },
+    {
+      "path": "artifacts/step5_disparity_intervals.csv",
+      "bytes": 1727,
+      "sha256": "c9e491c47ac4484927ba2877e6ca39e4b6c41ea6e0f7363c1bfdec79d1c848ff"
+    },
+    {
+      "path": "artifacts/step5_patient_weighted_disparities.csv",
+      "bytes": 652,
+      "sha256": "d0cf52c343f43254c0c486a6fbcb2dc25ebd35cda84692e941c3626c62156c51"
+    },
+    {
+      "path": "artifacts/step5_attribute_availability.csv",
+      "bytes": 851,
+      "sha256": "9b2b4b4486fc2aabb25c4d3ae7f2541969876efc756d3c7bb48df4196bf516ac"
+    },
+    {
+      "path": "artifacts/step5_counterfactual_sex_audit.json",
+      "bytes": 424,
+      "sha256": "ab070d71cc0ca03b5b1c78f9010534058a263f9a540139d3621e79a7be2d265a"
+    },
+    {
+      "path": "artifacts/step5_sex_specific_thresholds.json",
+      "bytes": 367,
+      "sha256": "1c8bb309a0030d548a955dc26b2d40cce601d1b6fde5cd224cae3f61d983d3c6"
+    },
+    {
+      "path": "artifacts/step5_mitigation_comparison.csv",
+      "bytes": 1259,
+      "sha256": "ffe0fb68d65a205d8afbbbd9becf12f576218522a8ccdde83ac2d35a0e3fdc93"
+    },
+    {
+      "path": "artifacts/step5_shap_global_importance.csv",
+      "bytes": 1344,
+      "sha256": "43e81e5b2b0c41265161989a072d86ef41cd9d053e6e1a572680fa504d0ff5f6"
+    },
+    {
+      "path": "artifacts/step5_shap_local_synthetic.csv",
+      "bytes": 3088,
+      "sha256": "9a2056b033bab9ae86f249c9da5d1660cdda1cff2368873f668b727aef46a623"
+    },
+    {
+      "path": "artifacts/step5_lime_local_synthetic.csv",
+      "bytes": 1458,
+      "sha256": "9ab3d672510ed612455781f6a0b3db6c5d37d8639b51c3e7b62140a3bdbdbad0"
+    },
+    {
+      "path": "artifacts/step5_lime_local_metadata.json",
+      "bytes": 351,
+      "sha256": "4256a9f6b045396925c0e1987b3d7a3782a68d6342e3dee9bd5409cbf539520e"
+    },
+    {
+      "path": "artifacts/step5_robustness_audit.csv",
+      "bytes": 1233,
+      "sha256": "42af75228fee7a8a32dcb0a0eaff41f4c20ac3be011e5ac6d9180f77913ba2ee"
+    },
+    {
+      "path": "artifacts/step5_ethical_risk_register.csv",
+      "bytes": 1233,
+      "sha256": "76dc86397b4fbe1d1ce6e32a38eecdf5c5bac2ceb1965140fbdf71668545c3be"
+    },
+    {
+      "path": "artifacts/step5_audit_summary.json",
+      "bytes": 1894,
+      "sha256": "17090321f37da7b3f513c0b218bf3516211f5a4a9c6119c33cba339cc1195f9e"
+    },
+    {
+      "path": "artifacts/step5_fairness_overview.png",
+      "bytes": 200689,
+      "sha256": "42d51034917922df5e991f18f104a7f5e08709969d33099e86d7f4c12fccb288"
+    },
+    {
+      "path": "artifacts/step5_disparity_summary.png",
+      "bytes": 120645,
+      "sha256": "85133f2475cb0530641b37628b7271bbfdbd0429a46748f8a0059e6711b830d1"
+    },
+    {
+      "path": "artifacts/step5_mitigation_tradeoff.png",
+      "bytes": 180114,
+      "sha256": "30546ab4434a01b6c9f61824af3af03bd1c922b65f5f11fbedf528456f23d8c7"
+    },
+    {
+      "path": "artifacts/step5_shap_summary.png",
+      "bytes": 133496,
+      "sha256": "512d82f00f7b172bcb226fc2bdec1b74dbca919fd298d4632ff3295592342a76"
+    },
+    {
+      "path": "artifacts/step5_shap_local_synthetic.png",
+      "bytes": 107162,
+      "sha256": "9d8fa1f209f3d5d5802b44d005b829564a84a8ac68a82090c61bfe3c870c209e"
+    },
+    {
+      "path": "artifacts/step5_lime_local_synthetic.png",
+      "bytes": 105003,
+      "sha256": "0f377fb807f6f2ba0bcb200f0ab2ade6b0e3c7fbf09f939f9eced92eebf252f8"
+    },
+    {
+      "path": "artifacts/step5_pdp_ice.png",
+      "bytes": 334792,
+      "sha256": "df354db868ad898a030b58c1eb6feb82ac84484730a7d25fac068047056c2798"
+    },
+    {
+      "path": "models/decision_threshold.json",
+      "bytes": 565,
+      "sha256": "b161b72504cdedbd9dac3e485cc69014d53c4c92b7d4d3c785d537933ed10deb"
+    },
+    {
+      "path": "models/model_manifest.json",
+      "bytes": 2000,
+      "sha256": "7b12bc91da9d407e0f4e2d1e11d65f590cda584988e0c07c935ab96162c55156"
+    },
+    {
+      "path": "models/dial_alert_final_predictor.joblib",
+      "bytes": 5565163,
+      "sha256": "efb0f4d44b6569838259728d164b22e87e43bd73f058882a8491aba82639aa75"
+    },
+    {
+      "path": "reports/Franklin_Guillano_DIAL_ALERT_Bias_and_Fairness_Analysis.docx",
+      "bytes": 1022758,
+      "sha256": "697fe8b49c6b277c2dea212c95e2a6e761a91092c89802f0aeede301efcd5b8a"
+    },
+    {
+      "path": "reports/Franklin_Guillano_DIAL_ALERT_Bias_and_Fairness_Analysis.pdf",
+      "bytes": 1461432,
+      "sha256": "ce9fd8539ebf1ca99606cdb41e2dc5e05b380b534bdcce396cd2245d90619185"
+    }
+  ]
+}

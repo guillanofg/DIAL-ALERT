@@ -1,0 +1,52 @@
+{
+  "test_sessions": 21354,
+  "test_patients": 170,
+  "threshold": 0.1428558780357408,
+  "recorded_attributes_audited": [
+    "Recorded sex",
+    "Age group"
+  ],
+  "clinical_subgroups_audited": [
+    "Diabetes status"
+  ],
+  "unavailable_attributes": [
+    "Race or ethnicity",
+    "Socioeconomic status",
+    "Gender identity"
+  ],
+  "bootstrap_iterations": 500,
+  "patient_overlap": {
+    "training_validation": 0,
+    "training_test": 0,
+    "validation_test": 0
+  },
+  "counterfactual_sex_audit": {
+    "mean_signed_probability_change": 0.001188906830626852,
+    "mean_absolute_probability_change": 0.007036370888051813,
+    "median_absolute_probability_change": 0.0047618017694450775,
+    "maximum_absolute_probability_change": 0.05486496180550837,
+    "alert_class_changed_percent": 1.348693453217196,
+    "interpretation": "Associational diagnostic only; holding correlated physiology fixed is not a causal intervention on sex."
+  },
+  "validation_sex_specific_thresholds": {
+    "method": "Recorded-sex-specific thresholds tuned on validation patients for equal sensitivity",
+    "validation_target_sensitivity": 0.7330391616105901,
+    "thresholds": {
+      "F": 0.18050305921061988,
+      "M": 0.0875561683495784
+    },
+    "warning": "Uses a protected attribute at inference and is an exploratory governance option, not a deployment recommendation."
+  },
+  "lime_local_fidelity": {
+    "weighted_r2": 0.6782277973246789,
+    "model_prediction": 0.6907337391575376,
+    "surrogate_prediction": 0.6658702308878941,
+    "absolute_prediction_error": 0.024863508269643453,
+    "samples": 2500,
+    "kernel_width": 0.75,
+    "scenario_type": "synthetic",
+    "not_a_patient_record": true,
+    "scenario_file": "artifacts/step5_shap_local_synthetic.csv"
+  },
+  "interpretation": "Internal fairness audit only; not evidence of clinical benefit, causal fairness, or deployment readiness."
+}

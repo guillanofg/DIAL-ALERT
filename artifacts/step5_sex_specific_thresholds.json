@@ -1,0 +1,9 @@
+{
+  "method": "Recorded-sex-specific thresholds tuned on validation patients for equal sensitivity",
+  "validation_target_sensitivity": 0.7330391616105901,
+  "thresholds": {
+    "F": 0.18050305921061988,
+    "M": 0.0875561683495784
+  },
+  "warning": "Uses a protected attribute at inference and is an exploratory governance option, not a deployment recommendation."
+}

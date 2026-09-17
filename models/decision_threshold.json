@@ -1,0 +1,27 @@
+{
+  "threshold": 0.1428558780357408,
+  "features": [
+    "age_years",
+    "dialysis_vintage_years",
+    "weightstart",
+    "dryweight",
+    "temperature",
+    "fluid_excess_kg",
+    "fluid_excess_pct",
+    "baseline_sbp",
+    "baseline_dbp",
+    "baseline_map",
+    "baseline_pulse_pressure",
+    "initial_uf_l_h",
+    "initial_uf_ml_kg_h",
+    "initial_blood_flow_ml_min",
+    "initial_dialysate_temp_c",
+    "initial_conductivity_ms_cm",
+    "prior_session_idh",
+    "prior_nadir_sbp",
+    "prior_idh_rate",
+    "prior_session_count",
+    "gender",
+    "DM"
+  ]
+}

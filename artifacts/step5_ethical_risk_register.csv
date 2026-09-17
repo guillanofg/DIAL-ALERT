@@ -1,0 +1,7 @@
+hazard,stakeholder,mechanism,severity,mitigation,residual_risk
+Missed high-risk session,Patient,False negative,High,"Clinician review, conservative sensitivity target, outcome monitoring",Residual false negatives remain
+Alert fatigue,Nurses and physicians,False positives and excessive alert volume,High,"Capacity-based alerting, configurable thresholds, burden dashboard",20% capacity still produces substantial false-alert burden
+Unequal access to review,Protected or underserved groups,Different selection or error rates,High,"Subgroup monitoring, reweighting study, governance review",Race and socioeconomic fairness are unmeasured
+Automation bias,Patients and clinicians,Risk score treated as diagnosis or treatment order,High,"Decision-support-only label, explanation, override and documentation",Human factors require prospective testing
+Privacy and re-identification,Patients,Longitudinal dialysis data are linkable,High,"Minimum necessary data, access controls, audit logs, retention limits",Public data do not remove future deployment privacy duties
+Performance drift,Future patients,"Population, protocol, or sensor changes",Medium,Calibration and subgroup drift monitoring with rollback,No prospective drift evidence yet
