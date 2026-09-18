@@ -585,7 +585,7 @@ def make_report() -> Path:
     )
     add_body(
         doc,
-        "PCA logistic regression achieved grouped cross-validation average precision of 0.410, compared with 0.444 for histogram gradient boosting. PCA was therefore documented as a dimensionality-reduction benchmark rather than selected for the final predictor. Its lower performance and reduced feature-level interpretability outweighed its compression benefit for this dataset."
+        "PCA logistic regression achieved grouped cross-validation average precision of 0.410, compared with 0.446 for histogram gradient boosting. PCA was therefore documented as a dimensionality-reduction benchmark rather than selected for the final predictor. Its lower performance and reduced feature-level interpretability outweighed its compression benefit for this dataset."
     )
 
     add_page_break(doc)

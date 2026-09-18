@@ -707,6 +707,7 @@ def main() -> None:
     if cv_detail:
         pd.concat(cv_detail, ignore_index=True).to_csv(args.artifacts / "cv_search_top_results.csv", index=False)
 
+    # PCA is a dimensionality-reduction benchmark outside the final selection pool.
     eligible = comparison.loc[
         ~comparison.model.isin(["Dummy prevalence baseline", "PCA logistic regression"])
     ].copy()
@@ -965,9 +966,11 @@ def main() -> None:
         "split_seed": split_seed,
         "selected_model": selected_name,
         "selected_calibration": selected_calibration,
+        "manifest_scope": "Training-run outputs; release_included marks the selected model and threshold distributed publicly.",
         "model_files": [
             {
                 "file": str(path.relative_to(args.models.parent)),
+                "release_included": path.name in {"dial_alert_final_predictor.joblib", "decision_threshold.json"},
                 "size_bytes": path.stat().st_size,
                 "sha256": sha256_file(path),
             }

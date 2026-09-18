@@ -23,3 +23,7 @@ The presentation builder is `src/create_step6_presentations.mjs`. It uses the pr
 ## Main data source
 
 Lin CJ, Chen YY, Pan CF, Wu VC, and Wu CJ. Dataset supporting blood pressure prediction for the management of chronic hemodialysis. *Scientific Data*. 2019;6:313. https://doi.org/10.1038/s41597-019-0319-8
+
+## Reproduction and scope clarification
+
+See [reproduction instructions](docs/reproduction_guide.md), the [actual execution record](docs/reproducibility_record.md), and [evaluation definitions](docs/evaluation_protocol.md). Candidate models and patient-level assignments regenerate locally; only the selected model is distributed. Presentation rebuilding requires the external authoring runtime described in the guide.

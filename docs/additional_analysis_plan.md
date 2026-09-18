@@ -1,0 +1,28 @@
+# Additional analyses and future validation
+
+Status: planned, not completed. This plan was written after the original test results were known. It is not a preregistration of the original study. Verified raw-data acquisition was blocked by HTTP 403 in the submission check. No new patient-level analyses or external/prospective results are claimed.
+
+## Protect the existing evaluation
+
+Keep the published predictor, threshold and test results frozen. Use training patients and grouped cross-validation for exploratory model development; use validation patients for calibration and operating decisions. Any additional evaluation on the existing 170-patient test set must be labeled post hoc, use a documented one-time analysis specification, and must not guide another round of model selection. Prefer a new temporal or external cohort for confirmatory comparisons. Save new outputs separately from the original artifacts.
+
+## Analyses 9–14
+
+| Item | Analysis specification | Required output and limitation |
+|---|---|---|
+| 9 Advance-warning time | For each event session, identify the first later SBP <90 reading and subtract the index measurement minute. Separately summarize sessions flagged at the frozen threshold. | Report median, IQR, distribution, and fractions with at least 15, 30 and 60 minutes of observed warning; patient-bootstrap intervals. Do not call the observed reading time the true onset time: intermittent BP measurements interval-censor onset. No warning time is defined for non-event sessions. |
+| 10 Simple clinical comparator | Fit a logistic model using baseline SBP and prior-session hypotension history, with a missing-history indicator. Fit imputation/scaling within each training fold. Use the same patient partitions and grouped CV as the full model. | Compare AP, ROC AUC, Brier score and recall/precision at matched review capacity. Select any comparator threshold on validation patients. Report paired patient-bootstrap differences on a separately approved final evaluation cohort. |
+| 11 Historical feature contribution | Compare full versus no-history feature sets under identical development and calibration procedures. Remove every previous-session summary, count and proxy from the no-history model. Prespecify a first-observed-session subgroup. | Report sample sizes, prevalence, missing-history handling and performance by history availability. Distinguish the first observed session in this dataset from a patient's first-ever dialysis session. Do not silently exclude first-observed sessions. |
+| 12 Fair calibration comparison | Compare random forest and histogram gradient boosting using the same calibration-fit and decision subsets of validation patients. Evaluate uncalibrated and sigmoid-calibrated versions of both; consider isotonic only under a separately fixed adequate-sample rule. | Report Brier score, log loss and reliability curves, with paired uncertainty. Choose calibration without test outcomes. Do not infer universal probability superiority from the original raw Brier comparison. |
+| 13 Extremes and exclusions | Audit UF-rate and fluid-excess units and distributions before judging plausibility. Define any clipping limits using clinical rationale and training data only. Compare original handling with a fixed alternative. Describe excluded sessions by exclusion reason, duration, baseline features and observable outcomes. | Report counts and missingness, original versus alternative results, and shifts in case mix. Analyze short sessions separately with explicit ascertainment limits; absence of a recorded event before early termination is not proof of a negative full-session outcome. No retrospective removal based on test performance. |
+| 14 Uncertainty | Retain patient-cluster bootstrap intervals and display the 170-patient denominator beside test estimates. | README now includes the existing 95% intervals. The 21,354 sessions are correlated observations, not 21,354 independent patients. No new bootstrap was run for this documentation revision. |
+
+For model comparisons, specify the primary comparison and report all planned variants, including unfavorable results. Use the same resampled patients for paired differences. Keep these analyses exploratory until independently confirmed.
+
+## Future validation 15–17
+
+1. **External or temporal validation:** arrange lawful access to a second center or a later period, map units and prediction-time availability, freeze the analysis before outcome review, and evaluate the unchanged model first. If recalibration is necessary, use a separate adaptation subset and untouched evaluation subset; disclose patient overlap in temporal cohorts.
+2. **Fresh-data fairness confirmation:** carry forward the original and reweighted candidates without further test-guided tuning. Compare subgroup calibration, sensitivity, false-positive rates and selection rates with intervals and subgroup counts. Treat current mitigation findings as exploratory; suppress or qualify unstable small-group estimates. Document unavailable attributes.
+3. **Staged prospective evaluation:** start with silent predictions, data-quality and timing checks, then simulated clinician review. Proceed to supervised use only after agreed safety/governance gates. Measure review time, alert burden, overrides and incidents before testing effects on outcomes and costs with an appropriate prospective comparator.
+
+The proposed feasibility targets are in [evaluation_protocol.md](evaluation_protocol.md). They are post-study proposals requiring local agreement, not established safety standards or evidence of clinical/financial benefit. External data access, site approval and prospective observation cannot be replaced by retrospective simulation.

@@ -22,37 +22,45 @@
     {
       "file": "models/candidate_logistic_regression.joblib",
       "size_bytes": 6134,
-      "sha256": "cb783a6bbd5ad503c604109804c47c4e9b793932f853846a96f6ff014de0deba"
+      "sha256": "cb783a6bbd5ad503c604109804c47c4e9b793932f853846a96f6ff014de0deba",
+      "release_included": false
     },
     {
       "file": "models/candidate_l1_feature_selection.joblib",
       "size_bytes": 6870,
-      "sha256": "063f8085842779394cefdf76fa0eec0b95318c89f006f745e543659a4baf8917"
+      "sha256": "063f8085842779394cefdf76fa0eec0b95318c89f006f745e543659a4baf8917",
+      "release_included": false
     },
     {
       "file": "models/candidate_decision_tree.joblib",
       "size_bytes": 24516,
-      "sha256": "f94c7c8922e484fb726e76f81e72184179a5584fd8ebd44dccb6025d2e39d503"
+      "sha256": "f94c7c8922e484fb726e76f81e72184179a5584fd8ebd44dccb6025d2e39d503",
+      "release_included": false
     },
     {
       "file": "models/candidate_pca_logistic_regression.joblib",
       "size_bytes": 8982,
-      "sha256": "74ee4428613aa33bf1e2e4efa5d79be992c0b971aa41fbf908341ace4f15202c"
+      "sha256": "74ee4428613aa33bf1e2e4efa5d79be992c0b971aa41fbf908341ace4f15202c",
+      "release_included": false
     },
     {
       "file": "models/candidate_histogram_gradient_boosting.joblib",
       "size_bytes": 274434,
-      "sha256": "de20aac6050fb623ed574e2e1771e3dbc951fef370594e0d53dccc95340c57f8"
+      "sha256": "de20aac6050fb623ed574e2e1771e3dbc951fef370594e0d53dccc95340c57f8",
+      "release_included": false
     },
     {
       "file": "models/dial_alert_final_predictor.joblib",
       "size_bytes": 5565163,
-      "sha256": "efb0f4d44b6569838259728d164b22e87e43bd73f058882a8491aba82639aa75"
+      "sha256": "efb0f4d44b6569838259728d164b22e87e43bd73f058882a8491aba82639aa75",
+      "release_included": true
     },
     {
       "file": "models/decision_threshold.json",
       "size_bytes": 565,
-      "sha256": "b161b72504cdedbd9dac3e485cc69014d53c4c92b7d4d3c785d537933ed10deb"
+      "sha256": "b161b72504cdedbd9dac3e485cc69014d53c4c92b7d4d3c785d537933ed10deb",
+      "release_included": true
     }
-  ]
+  ],
+  "manifest_scope": "Historical training-run files; release_included marks files shipped in the public repository."
 }
