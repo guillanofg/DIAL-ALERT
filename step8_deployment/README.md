@@ -46,4 +46,6 @@ Record the Git commit, model SHA/hash from `models/model_manifest.json`, environ
 
 ## Evidence status
 
-The **app and instructions are included**. A recorded Step 8 GIF/screencast is **not currently included**, so this optional step should not be described as fully demonstrated until a real run is recorded and added. No cloud deployment is claimed.
+The app, instructions, [synthetic HTTP execution record](demo/http_execution.json), and [animated demo](demo/DIAL_ALERT_Step8_HTTP_Demo.gif) are included. The animation plays recorded responses from a real local HTTP run; it is not a screen capture. The model predicted probability 0.0762525635 for the declared synthetic example, below the fixed threshold.
+
+The app and CLI both transform the raw prior-session count with `log1p`, as training did. Regression tests check agreement for counts 0, 10 and 250. Invalid numeric input is rejected. This is an academic local demonstration; clinical validation, production authentication and cloud deployment are not established.

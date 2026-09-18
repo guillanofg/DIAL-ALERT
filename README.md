@@ -87,7 +87,7 @@ Raw and processed data are intentionally excluded from Git. The download script 
 
 **Regenerated from data/code:** processed session data, model-search outputs, refreshed metrics/figures, and reports can be rebuilt by following the commands below.
 
-**Presentation rebuild:** the current PPTX files are included. Rebuilding them from `src/create_step6_presentations.mjs` requires the JavaScript presentation-generation environment used by that script in addition to the Python requirements; this is not installed by `requirements.txt`.
+**Presentation rebuild:** see [artifact inventory and exact dependencies](docs/ARTIFACT_INVENTORY.md). The specialized JavaScript helper environment is not bundled. The revised PPTX files and Python revision script are included; Python alone does not recreate the original JavaScript authoring environment.
 
 ## Reproduce the analysis
 
@@ -100,15 +100,16 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 python src/download_data.py
 python src/build_session_dataset.py --raw-dir data/raw --output-dir data/processed
+python src/generate_step2_assets.py
 python src/train_evaluate.py --data data/processed/hemobp_session_level.csv.gz --config configs/model_config.json --artifacts artifacts --models models
 python src/generate_eda.py
 python src/generate_step4_assets.py
 python src/audit_bias_fairness.py
 python src/create_final_report.py
-pytest -q
+python -m pytest -q
 ```
 
-A fresh-environment verification record should be saved in `docs/REPRODUCIBILITY_RECORD.md`. Do not mark it complete until the entire sequence, including a prediction smoke test, has been executed in a clean environment.
+**Verification status (18 September 2026):** a clean Python 3.12 environment installed successfully, but data acquisition returned HTTP 403. Full data-to-training reproduction is **not verified**. Included-model inference, CLI/API agreement and local HTTP execution were tested separately. See [execution record](docs/REPRODUCIBILITY_RECORD.md). Run reproduction in a separate checkout to preserve locked reference outputs.
 
 ## Score new session records
 
@@ -134,11 +135,11 @@ The output adds `dial_alert_probability` and `dial_alert_flag`. A flag is a mode
 
 Analyses that would strengthen the work, without repeatedly tuning against the existing test set, include: advance-warning time; a baseline-SBP + prior-hypotension clinical comparator; ablation of historical features including first-observed sessions; equally calibrated finalist comparison; sensitivity to extreme UF/fluid-excess values and short-session exclusions; and stronger presentation of patient-level uncertainty.
 
-These should be labeled secondary/exploratory unless specified prospectively. External/temporal validation, fairness confirmation on fresh data, and staged prospective evaluation remain future work.
+See [secondary analysis plan](docs/SECONDARY_ANALYSIS_PLAN.md) for prespecified outputs. These analyses were not executed in this revision and must be labeled secondary/exploratory unless specified prospectively. External/temporal validation, fairness confirmation on fresh data, and staged prospective evaluation remain future work.
 
 ## Step 8: Deployment & MLOps
 
-The repository now contains a local Flask inference package in `step8_deployment/`. It loads the included model and exposes health and prediction endpoints. This demonstrates local packaging only; it is **not clinical deployment**. A recorded Step 8 screencast is not currently included, so the optional step should not be described as fully demonstrated until that media is added.
+The repository now contains a local Flask inference package in `step8_deployment/`. It loads the included model and exposes health and prediction endpoints. This demonstrates local packaging only; it is **not clinical deployment**. The [Step 8 GIF demo](step8_deployment/demo/DIAL_ALERT_Step8_HTTP_Demo.gif) animates recorded responses from a real localhost HTTP run with a synthetic input. It is labeled as playback, not a screen capture. The app and CLI now apply the same prior-session-count transformation.
 
 ## Step 9: Use of Generative AI
 

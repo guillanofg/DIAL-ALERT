@@ -205,7 +205,7 @@ def add_problem_section(doc: Document) -> None:
             ["Prediction time", "Earliest valid active-dialysis observation during minutes 0 to 30"],
             ["Target", "Any later systolic blood-pressure measurement below 90 mmHg"],
             ["Predictors", "Index-time variables and patient history derived only from earlier sessions"],
-            ["Exclusions", "Index SBP below 90 mmHg, inadequate later measurements, or follow-up shorter than 120 minutes"],
+            ["Exclusions", "Index SBP below 90 mmHg, inadequate later measurements, or last observed dialysis minute below 120"],
         ],
         widths=[1.65, 5.05],
         font_size=8.8,
@@ -258,7 +258,7 @@ def add_data_section(doc: Document, cohort: dict) -> None:
     doc.add_heading("Cohort Construction", level=2)
     add_body(
         doc,
-        "The source tables are joined on patient identifier and normalized session date. The earliest valid active-dialysis reading in the first 30 minutes defines the index record. Later readings define outcomes. Sessions require at least two later measurement minutes and observation through minute 120."
+        "The source tables are joined on patient identifier and normalized session date. The earliest valid active-dialysis reading in the first 30 minutes defines the index record. Later readings define outcomes. Sessions require at least two later measurement minutes and an observation at or beyond dialysis minute 120 (not 120 minutes after prediction)."
     )
     add_table(
         doc,
@@ -609,7 +609,7 @@ def add_business_section(doc: Document, metrics: dict) -> None:
     )
     add_body(
         doc,
-        "The final communication package includes a twelve-slide technical deck for peers and a ten-slide business deck for executives. Both decks state the evidence boundary and recommend validation rather than deployment."
+        "The final communication package includes a sixteen-slide technical deck for peers and an eleven-slide business deck for executives. Both decks state the evidence boundary and recommend validation rather than deployment."
     )
 
 
@@ -722,10 +722,10 @@ def add_references(doc: Document) -> None:
 
 def add_rubric_appendix(doc: Document) -> None:
     add_page_break(doc)
-    doc.add_heading("Appendix Rubric Evidence Map", level=1)
+    doc.add_heading("Appendix Project Evidence Map", level=1)
     add_table(
         doc,
-        ["Rubric step", "Evidence"],
+        ["Project step", "Evidence"],
         [
             ["1 Problem Understanding and Framing", "Clear clinical context, supervised task, target, technical metrics, operational KPIs, and evidence boundary"],
             ["2 Data Collection and Understanding", "Peer-reviewed public dataset, license, checksums, cohort audit, complete dictionaries, and limitations"],
@@ -767,6 +767,8 @@ def make_report() -> Path:
     add_references(doc)
     add_rubric_appendix(doc)
 
+    from revise_submission_documents import append_notes
+    append_notes(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
     return OUTPUT

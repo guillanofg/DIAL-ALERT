@@ -54,5 +54,6 @@
       "size_bytes": 565,
       "sha256": "b161b72504cdedbd9dac3e485cc69014d53c4c92b7d4d3c785d537933ed10deb"
     }
-  ]
+  ],
+  "distribution_note": "Historical development manifest: only the final predictor and threshold are bundled; candidate models must be regenerated. Original file hashes are retained."
 }

@@ -15,7 +15,7 @@ jobs:
           python-version: "3.12"
           cache: pip
       - name: Install dependencies
-        run: python -m pip install -r requirements.txt
+        run: python -m pip install -r requirements.txt -r step8_deployment/requirements-step8.txt
       - name: Run tests
-        run: pytest -q
+        run: python -m pytest -q tests step9_genai/tests
 

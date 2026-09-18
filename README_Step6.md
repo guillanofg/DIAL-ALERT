@@ -5,10 +5,10 @@ This submission contains two audience-specific PowerPoint decks.
 ## Deliverables
 
 - `reports/Franklin_Guillano_DIAL_ALERT_Technical_Presentation.pptx`
-  Twelve slides for technical peers covering problem framing, cohort construction, leakage control, patient-grouped evaluation, model comparison, held-out performance, alert capacity, explainability, fairness, mitigation, reproducibility, and validation gates.
+  Sixteen slides for technical peers covering problem framing, cohort construction, leakage control, patient-grouped evaluation, model comparison, held-out performance, alert capacity, explainability, fairness, mitigation, reproducibility, and validation gates.
 
 - `reports/Franklin_Guillano_DIAL_ALERT_Business_Presentation.pptx`
-  Ten slides for clinical and executive leaders covering the proposed workflow, evidence strength, operational impact, an ROI measurement framework, risks, governance, a 90-day pilot, and the requested decision.
+  Eleven slides for clinical and executive leaders covering the proposed workflow, evidence strength, operational impact, an ROI measurement framework, risks, governance, an illustrative staged pilot, and the requested decision.
 
 Both decks include presenter notes with talking points and source citations. Native PowerPoint charts remain editable.
 
@@ -23,3 +23,5 @@ The presentation builder is `src/create_step6_presentations.mjs`. It uses the pr
 ## Main data source
 
 Lin CJ, Chen YY, Pan CF, Wu VC, and Wu CJ. Dataset supporting blood pressure prediction for the management of chronic hemodialysis. *Scientific Data*. 2019;6:313. https://doi.org/10.1038/s41597-019-0319-8
+
+For final revisions and build dependencies, see `docs/ARTIFACT_INVENTORY.md`. Run `python src/revise_submission_presentations.py` after the original JavaScript builder. Both revised decks have been rendered and visually reviewed.

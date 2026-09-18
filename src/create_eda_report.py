@@ -360,7 +360,7 @@ def make_report() -> Path:
         ["Unit", "One linked patient-day haemodialysis session"],
         ["Prediction time", "Earliest active-dialysis record from minute 0 through minute 30"],
         ["Primary target", "Any later SBP below 90 mmHg"],
-        ["Eligibility", "Index SBP at least 90 mmHg, at least two later distinct minutes, and observation through at least minute 120"],
+        ["Eligibility", "Index SBP at least 90 mmHg, at least two later distinct minutes, and an observation at or beyond dialysis minute 120"],
         ["Leakage rule", "No measurement or outcome recorded after the index time is used as a predictor"],
         ["Validation grouping", "All sessions from a patient remain within one data split"],
     ]
@@ -585,14 +585,14 @@ def make_report() -> Path:
     )
     add_body(
         doc,
-        "PCA logistic regression achieved grouped cross-validation average precision of 0.410, compared with 0.444 for histogram gradient boosting. PCA was therefore documented as a dimensionality-reduction benchmark rather than selected for the final predictor. Its lower performance and reduced feature-level interpretability outweighed its compression benefit for this dataset."
+        "PCA logistic regression achieved grouped cross-validation average precision of 0.410, compared with 0.446 for histogram gradient boosting. PCA was therefore documented as a dimensionality-reduction benchmark rather than selected for the final predictor. Its lower performance and reduced feature-level interpretability outweighed its compression benefit for this dataset."
     )
 
     add_page_break(doc)
     doc.add_heading("11 Global Feature Importance", level=1)
     add_body(
         doc,
-        "Permutation importance measures the reduction in test-set average precision after a feature is shuffled. Previous-session nadir SBP produced the largest decrease (0.128), followed by prior IDH rate (0.081), fluid excess percentage (0.015), baseline SBP (0.009), and baseline mean arterial pressure (0.004). Near-zero or negative values can occur when predictors are redundant or when finite-sample variation exceeds the feature's unique contribution."
+        "Permutation importance measures the reduction in test-set average precision after a feature is shuffled. Previous-session nadir SBP produced the largest decrease (0.076), followed by prior IDH rate (0.059), previous-session IDH (0.017), baseline SBP (0.014), and baseline mean arterial pressure (0.009). Near-zero or negative values can occur when predictors are redundant or when finite-sample variation exceeds the feature's unique contribution."
     )
     add_figure(
         doc,
@@ -611,7 +611,7 @@ def make_report() -> Path:
     doc.add_heading("12 SHAP and Conditional Effects", level=1)
     add_body(
         doc,
-        "SHAP explanations were generated for the uncalibrated base model because probability calibration does not change the underlying predictor relationships. Only aggregate mean absolute contributions are published. The summary confirms that previous-session nadir pressure, prior IDH rate, and fluid excess dominate model output. SHAP values describe the fitted model and do not prove that modifying a feature would change a patient's outcome."
+        "SHAP explanations describe the selected random forest; no post-hoc calibration was applied. Only aggregate mean absolute contributions are published. The summary confirms that previous-session nadir pressure, prior IDH rate, and fluid excess dominate model output. SHAP values describe the fitted model and do not prove that modifying a feature would change a patient's outcome."
     )
     add_figure(
         doc,

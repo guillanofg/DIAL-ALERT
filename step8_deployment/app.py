@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 
 import joblib
+import numpy as np
 import pandas as pd
 from flask import Flask, jsonify, request
 
@@ -44,7 +45,16 @@ def predict():
     if missing or extra:
         return jsonify(error="Feature contract mismatch.", missing=missing, extra=extra), 400
 
-    frame = pd.DataFrame([{name: payload[name] for name in FEATURES}])
+    try:
+        frame = pd.DataFrame([{name: payload[name] for name in FEATURES}])
+        numeric = [name for name in FEATURES if name not in {"gender", "DM"}]
+        frame[numeric] = frame[numeric].apply(pd.to_numeric, errors="raise")
+        if np.isinf(frame[numeric].to_numpy(dtype=float)).any():
+            raise ValueError("Infinite values are invalid")
+        # Same raw-count transformation used by training and src/predict.py.
+        frame["prior_session_count"] = np.log1p(frame["prior_session_count"].clip(lower=0))
+    except (TypeError, ValueError):
+        return jsonify(error="Numeric features must be numbers or null; infinity is invalid."), 400
     probability = float(MODEL.predict_proba(frame)[:, 1][0])
     return jsonify(
         dial_alert_probability=probability,

@@ -543,7 +543,7 @@ def build_report():
         [
             "Normalize D1 and VIP dates and link records on de-identified patient ID plus calendar date.",
             "Use the earliest valid active-dialysis VIP record within the first 30 elapsed minutes as the index record. Active treatment requires blood flow greater than zero.",
-            "Require index SBP from 90 to 200 mmHg, index DBP from 30 to 150 mmHg, at least two later distinct elapsed-minute values, and follow-up to at least minute 120.",
+            "Require index SBP from 90 to 200 mmHg, index DBP from 30 to 150 mmHg, at least two later distinct elapsed-minute values, and an observation at or beyond dialysis minute 120 (not 120 minutes after prediction).",
             "Derive the primary outcome only from records after the index observation. Retain outcome and post-treatment fields for audit, but exclude them from predictors.",
             "Derive prior-session features with chronological shifts and cumulative calculations so the current or future session cannot enter its own history.",
         ],

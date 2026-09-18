@@ -1,0 +1,16 @@
+{
+  "input_type": "synthetic; not a patient record",
+  "health": {
+    "clinical_use": false,
+    "feature_count": 22,
+    "model": "DIAL-ALERT random forest",
+    "status": "ok",
+    "threshold": 0.1428558780357408
+  },
+  "prediction": {
+    "dial_alert_flag": false,
+    "dial_alert_probability": 0.07625256348399012,
+    "interpretation": "Academic model output only; not a diagnosis or treatment recommendation.",
+    "operating_threshold": 0.1428558780357408
+  }
+}

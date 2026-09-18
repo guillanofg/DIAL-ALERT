@@ -89,7 +89,7 @@ def make_report() -> Path:
     doc.add_heading("Executive Summary", level=1)
     add_body(
         doc,
-        f"Seven modelling configurations were compared using patient-grouped cross-validation and a patient-disjoint validation set. {selected} was selected under the locked rule: maximize grouped cross-validation average precision, then among models within 0.01 of the best result choose the model with the lower validation Brier score. This rule balanced event ranking with probability reliability and selected the random forest over the less well-calibrated boosted-tree candidate."
+        f"Seven modelling configurations were compared using patient-grouped cross-validation and a patient-disjoint validation set. {selected} was selected under the locked rule: maximize grouped cross-validation average precision, then among models within 0.01 of the best result choose the model with the lower validation Brier score. This rule selected random forest using the candidates as fitted. It does not establish superiority after equal calibration of both finalists."
     )
     add_body(
         doc,
@@ -106,7 +106,7 @@ def make_report() -> Path:
         ["Appropriate tuning", "Grid or randomized searches were nested within three-fold patient-grouped cross-validation."],
         ["Relevant metrics", "Average precision is primary; ROC AUC, Brier score, log loss, sensitivity, specificity, precision, F1, and alert-capacity metrics are reported."],
         ["Fair comparison", "Every candidate uses the same cohort, feature boundary, patient splits, and outcome."],
-        ["Reproducibility", "Configurations, split assignments, candidate pipelines, final predictor, threshold, package versions, hashes, and random seeds are saved."],
+        ["Reproducibility", "The final predictor, threshold, configuration and version records are included. Candidate pipelines and patient-level split assignments must be regenerated."],
         ["Model choice", "The selection rule was locked before final testing and is explained using discrimination, calibration, and operational needs."],
     ]
     add_table(doc, ["Requirement", "Evidence"], rubric_rows, widths=[1.55, 5.35], font_size=8.6)
@@ -418,7 +418,7 @@ def make_report() -> Path:
         ["artifacts/final_test_metrics.json", "Locked test-set results"],
         ["artifacts/test_metric_confidence_intervals.csv", "Patient-cluster bootstrap intervals"],
         ["artifacts/capacity_metrics.csv", "Alert workload and captured-event trade-offs"],
-        ["artifacts/split_assignments.csv.gz", "Reproducible patient-disjoint assignment for every session"],
+        ["artifacts/split_assignments.csv.gz", "Regenerated locally; patient-level assignments are not bundled"],
         ["configs/model_config.json", "Features, target, capacity, seeds, workers, folds, and selection tolerance"],
     ]
     add_table(doc, ["Artefact", "Purpose"], files_rows, widths=[2.7, 4.2], font_size=8.0, vertical_margin=60)
@@ -462,7 +462,7 @@ def make_report() -> Path:
     )
     add_body(
         doc,
-        "The trained pipelines, threshold, configuration, split assignments, metrics, package versions, and integrity hashes are saved. The next capstone stage should audit model explanations, limitations, subgroup fairness, and feasible mitigation strategies before any deployment work begins."
+        "The selected predictor, threshold, configuration, metrics and version records are included; other pipelines and patient-level split assignments require regeneration. The next capstone stage should audit model explanations, limitations, subgroup fairness, and feasible mitigation strategies before any deployment work begins."
     )
 
     doc.add_heading("References", level=1)
