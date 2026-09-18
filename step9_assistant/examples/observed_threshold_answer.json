@@ -1,0 +1,17 @@
+{
+  "provenance": "Manually transcribed from the user screen recording; not an exported API payload.",
+  "claims": [
+    {
+      "text": "An alert occurs when model probability is greater than or equal to 0.1428558780357408 (approximately 14.29%).",
+      "source_id": "S2"
+    },
+    {
+      "text": "A below-threshold result does not rule out an event.",
+      "source_id": "S2"
+    },
+    {
+      "text": "DIAL-ALERT uses the selected Step 4 random-forest model to estimate the probability of later-session systolic blood pressure below 90 mmHg.",
+      "source_id": "S1"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  ".gitignore": "0c3f7a8f9f1102d598ce6011a049de2a47b8cb33af3bd0f0e3e69ef035dd9fb5",
+  "README.md": "973ac6d57b6ac7faa243452bd75ae5c56a10a3b891104fe56f43b631f2a49b55",
+  "demo/DIAL_ALERT_Step9_Live_Demo.mp4": "65a1fd275f2f67f4fe224b09b78c53080d11c029d02022e713e8168cebfaf985",
+  "docs/DIAL_ALERT_Step9_Project_Assistant.pptx": "426d88d029524de530e2a2ee590fcd16c65bd29c82a8b37a31c271101fe0327b",
+  "docs/GENAI_REPORT.md": "e43bf7193a1db72a6de07f66c593573972c5bcd186057c196abf8d5b0b24d08c",
+  "docs/LIVE_DEMO.md": "d5a1964ee77567d1bf2be1cb41d239d8128c1e5c4e4341670b328acc9d3d0b7f",
+  "evidence/LIVE_REVIEW.md": "d2ef2e8bddb058f1dfd1be175c2b63042f7e6179d15377110c8c7233e4a1bd30",
+  "evidence/http_demo.json": "0e0412b385508be7936c7c878056b7618cc6bd7159b4a0628750deb2e60a10f8",
+  "evidence/tests.txt": "e9fd8e7155332a87bcf12919f3379331f386e33383b77827a9ca799dd4cddd5c",
+  "examples/illustrative_generated_answer.json": "f00ce3ee5f3a456c22683d88ae69358cb5182cf3e9a317fa327a16b424d8ea4e",
+  "examples/observed_threshold_answer.json": "b4accc65b19d230e7393e9c17c8d96620a18d96f2dbe75841d73ed1392bf8df6",
+  "examples/source_answers.json": "32a2a299b0f271a522672a11cbb52e9e943b9df181860182bdc7adb46e10fdf1",
+  "knowledge/project.json": "29a544e30546f7e1d9e84136050dc814c3f26605da4db41da713763776507558",
+  "requirements.txt": "a145feadac6f84f149c3ff4d50fa6e6308f948cd5bd9d03e0d30a54aba40f37b",
+  "src/assistant.py": "f3a15b80c79c0848f513dcaa0a692002fe4821ea99537c9ec1d05ad221f65bf4",
+  "src/index.html": "0810225570604c9a59427c7b21a0d3c900cbd533c97fa08a775050e9fdabe582",
+  "src/make_video.py": "c5569f56fd4d6faffc890e322015027bda47132b4627d0aa82e02de31ff59e75",
+  "src/record_demo.py": "653b5f0a9dade486aff6a569b36edf33f3c685a5eeacdbe30aa7d2f40417a567",
+  "src/server.py": "ee1d2d265477e07a2b31a95f15f2bbaa80242dd56bdd071e3d97abe1de1e729d",
+  "tests/test_assistant.py": "ef055c6d7f025f24743cd2ebe285f57dcfc463d4596dea89516c40cf9a0e200e"
+}

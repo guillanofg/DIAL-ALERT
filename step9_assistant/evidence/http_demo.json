@@ -1,0 +1,142 @@
+[
+  {
+    "request": {
+      "question_id": "target",
+      "mode": "sources"
+    },
+    "http_status": 200,
+    "response": {
+      "question": "What does DIAL-ALERT predict?",
+      "mode": "sources",
+      "sources": [
+        {
+          "id": "S1",
+          "title": "Prediction target",
+          "section": "Step 8 guide, sections 1 and 3",
+          "text": "DIAL-ALERT uses the selected Step 4 random-forest model to estimate the probability of later-session systolic blood pressure below 90 mmHg. The index reading is the earliest eligible active-dialysis reading within the first 30 minutes. This endpoint does not incorporate symptoms or interventions."
+        },
+        {
+          "id": "S4",
+          "title": "Scope and limitations",
+          "section": "Step 8 guide, sections 3 and 8",
+          "text": "The interface accepts adults and rejects starting systolic blood pressure below 90 mmHg. Historical cohort eligibility required at least two distinct later readings and observation to at least 120 minutes. These future conditions cannot be known at prediction time. External and temporal validation and prospective silent-mode evaluation are required before clinical integration."
+        }
+      ],
+      "knowledge_sha256": "29a544e30546f7e1d9e84136050dc814c3f26605da4db41da713763776507558",
+      "status": "source_excerpts",
+      "notice": "Exact source excerpts. No language model was called."
+    },
+    "seconds": 0.003
+  },
+  {
+    "request": {
+      "question_id": "threshold",
+      "mode": "sources"
+    },
+    "http_status": 200,
+    "response": {
+      "question": "What is the alert threshold and what does it mean?",
+      "mode": "sources",
+      "sources": [
+        {
+          "id": "S2",
+          "title": "Alert threshold",
+          "section": "Step 8 guide, section 3",
+          "text": "An alert occurs when model probability is greater than or equal to 0.1428558780357408 (approximately 14.29%). This is the original validation-selected F2 threshold. It is not a clinical treatment threshold or an enforced 20% alert quota. A below-threshold result does not rule out an event."
+        },
+        {
+          "id": "S1",
+          "title": "Prediction target",
+          "section": "Step 8 guide, sections 1 and 3",
+          "text": "DIAL-ALERT uses the selected Step 4 random-forest model to estimate the probability of later-session systolic blood pressure below 90 mmHg. The index reading is the earliest eligible active-dialysis reading within the first 30 minutes. This endpoint does not incorporate symptoms or interventions."
+        }
+      ],
+      "knowledge_sha256": "29a544e30546f7e1d9e84136050dc814c3f26605da4db41da713763776507558",
+      "status": "source_excerpts",
+      "notice": "Exact source excerpts. No language model was called."
+    },
+    "seconds": 0.001
+  },
+  {
+    "request": {
+      "question_id": "limitations",
+      "mode": "sources"
+    },
+    "http_status": 200,
+    "response": {
+      "question": "What are the scope and limitations?",
+      "mode": "sources",
+      "sources": [
+        {
+          "id": "S4",
+          "title": "Scope and limitations",
+          "section": "Step 8 guide, sections 3 and 8",
+          "text": "The interface accepts adults and rejects starting systolic blood pressure below 90 mmHg. Historical cohort eligibility required at least two distinct later readings and observation to at least 120 minutes. These future conditions cannot be known at prediction time. External and temporal validation and prospective silent-mode evaluation are required before clinical integration."
+        },
+        {
+          "id": "S2",
+          "title": "Alert threshold",
+          "section": "Step 8 guide, section 3",
+          "text": "An alert occurs when model probability is greater than or equal to 0.1428558780357408 (approximately 14.29%). This is the original validation-selected F2 threshold. It is not a clinical treatment threshold or an enforced 20% alert quota. A below-threshold result does not rule out an event."
+        }
+      ],
+      "knowledge_sha256": "29a544e30546f7e1d9e84136050dc814c3f26605da4db41da713763776507558",
+      "status": "source_excerpts",
+      "notice": "Exact source excerpts. No language model was called."
+    },
+    "seconds": 0.001
+  },
+  {
+    "request": {
+      "question_id": "examples",
+      "mode": "sources"
+    },
+    "http_status": 200,
+    "response": {
+      "question": "What do the synthetic examples show?",
+      "mode": "sources",
+      "sources": [
+        {
+          "id": "S5",
+          "title": "Synthetic examples",
+          "section": "Step 8 guide, section 4",
+          "text": "The Step 8 guide reports synthetic Example A at 6.26% with a below-threshold flag and Example B at 61.12% with an above-threshold flag. These are hand-authored synthetic examples. They demonstrate service behavior, not measured accuracy or clinical benefit. Step 9 quotes these previously recorded results and does not rerun the random forest."
+        },
+        {
+          "id": "S3",
+          "title": "Model inputs",
+          "section": "Step 8 guide, sections 1 and 3",
+          "text": "The saved preprocessing pipeline uses 22 features. Inputs include blood pressure at the index reading, age, recorded sex, diabetes, dialysis vintage, weight and dry weight, body temperature, treatment settings and earlier-session history. The app derives fluid excess, estimated MAP, pulse pressure and weight-adjusted UF rate, and applies log1p to prior-session count exactly once."
+        }
+      ],
+      "knowledge_sha256": "29a544e30546f7e1d9e84136050dc814c3f26605da4db41da713763776507558",
+      "status": "source_excerpts",
+      "notice": "Exact source excerpts. No language model was called."
+    },
+    "seconds": 0.001
+  },
+  {
+    "request": {
+      "question_id": "target",
+      "mode": "sources",
+      "extra_field": "synthetic-field-rejection-test"
+    },
+    "http_status": 400,
+    "response": {
+      "error": "Only question_id and mode are accepted. No patient information."
+    },
+    "seconds": 0.001
+  },
+  {
+    "request": {
+      "question_id": "threshold",
+      "mode": "generate"
+    },
+    "http_status": 503,
+    "response": {
+      "error": "Local model unavailable or invalid response. Start Ollama and pull llama3.2:3b.",
+      "status": "no_generated_answer"
+    },
+    "seconds": 0.002
+  }
+]

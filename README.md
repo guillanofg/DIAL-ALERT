@@ -143,7 +143,10 @@ The repository now contains a local Flask inference package in `step8_deployment
 
 ## Step 9: Use of Generative AI
 
-See `step9_genai/README.md` and `step9_genai/demo/DIAL_ALERT_Step9_Demo.mp4`. Step 9 demonstrates **replay of a saved AI-assisted draft with source-linked numeric validation**. It does **not** demonstrate live LLM generation, an LLM-backed clinical recommender, or a live model call.
+The [local project Q&A assistant](step9_assistant/README.md) uses Ollama and `llama3.2:3b` to generate source-linked project explanations. See the [report](step9_assistant/docs/GENAI_REPORT.md), [code](step9_assistant/src/), [examples](step9_assistant/examples/), and [live review](step9_assistant/evidence/LIVE_REVIEW.md).
+
+Live generation was demonstrated on the author's Mac. Citation and numeric checks do not establish semantic correctness; the review records observed answer-quality issues. Video and presentation upload is in progress. The [earlier saved-draft demonstration](step9_genai/README.md) remains available.
+
 
 ## Limitations
 

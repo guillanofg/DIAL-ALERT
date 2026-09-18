@@ -1,0 +1,13 @@
+{
+  "provenance": "Illustrative authoring-time example. Not recorded Llama output.",
+  "claims": [
+    {
+      "text": "The alert threshold is approximately 14.29%.",
+      "source_id": "S2"
+    },
+    {
+      "text": "A below-threshold result does not rule out an event.",
+      "source_id": "S2"
+    }
+  ]
+}
