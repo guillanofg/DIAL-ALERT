@@ -200,6 +200,9 @@ def build_dataset(raw_dir: Path, output_dir: Path) -> pd.DataFrame:
     flow["sessions_with_post_index_records"] = int(len(sessions))
 
     # Adequate follow-up reduces false negatives caused by truncated sessions.
+    # IMPORTANT: the 120-minute rule is anchored to dialysis elapsed time:
+    # last_observed_minute >= 120. It does NOT require 120 minutes of follow-up
+    # after the index/prediction observation, which can occur during minutes 0-30.
     baseline_eligible = sessions.loc[sessions["baseline_sbp"] >= 90].copy()
     flow["sessions_removed_baseline_sbp_below_90"] = int(len(sessions) - len(baseline_eligible))
     minute_eligible = baseline_eligible.loc[baseline_eligible["later_distinct_minutes"] >= 2].copy()
