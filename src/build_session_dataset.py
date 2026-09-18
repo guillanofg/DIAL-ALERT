@@ -206,6 +206,8 @@ def build_dataset(raw_dir: Path, output_dir: Path) -> pd.DataFrame:
     flow["sessions_removed_insufficient_later_minutes"] = int(
         len(baseline_eligible) - len(minute_eligible)
     )
+    # Absolute elapsed dialysis minute, not 120 minutes after index.
+    # The historical artifact key below is retained for compatibility.
     sessions = minute_eligible.loc[minute_eligible["last_observed_minute"] >= 120].copy()
     flow["sessions_removed_followup_below_120_minutes"] = int(
         len(minute_eligible) - len(sessions)

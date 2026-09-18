@@ -41,3 +41,7 @@ The input must contain all features listed in `models/decision_threshold.json`. 
 ## Intended use
 
 This is an academic clinical decision-support prototype. It is not a diagnostic device and must not guide patient care without external and prospective validation, workflow testing, and governance approval.
+
+## Reproduction and scope clarification
+
+See [reproduction instructions](docs/reproduction_guide.md), the [actual execution record](docs/reproducibility_record.md), and [evaluation definitions](docs/evaluation_protocol.md). Candidate models and patient-level assignments regenerate locally; only the selected model is distributed. Presentation rebuilding requires the external authoring runtime described in the guide.

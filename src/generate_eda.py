@@ -362,7 +362,7 @@ def save_cleaning_audit(flow: dict, output: Path) -> None:
         ("Sessions with post-index records", flow["sessions_with_post_index_records"], "Applied sequential outcome-eligibility criteria"),
         ("Sessions removed for baseline SBP below 90", flow["sessions_removed_baseline_sbp_below_90"], "Excluded prevalent hypotension at prediction time"),
         ("Sessions removed for fewer than two later minutes", flow["sessions_removed_insufficient_later_minutes"], "Reduced false negatives from sparse follow-up"),
-        ("Sessions removed for follow-up below 120 minutes", flow["sessions_removed_followup_below_120_minutes"], "Reduced false negatives from truncated observation"),
+        ("Sessions removed because last dialysis minute was below 120", flow["sessions_removed_followup_below_120_minutes"], "Reduced false negatives from truncated observation"),
         ("Final eligible sessions", flow["final_eligible_sessions"], "Used for EDA and modelling"),
     ]
     pd.DataFrame(rows, columns=["stage", "records_or_sessions", "action"]).to_csv(output, index=False)

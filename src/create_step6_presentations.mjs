@@ -317,14 +317,14 @@ async function buildTechnicalDeck() {
     addFooter(s, "DIAL-ALERT technical presentation", 1, true);
     addNotes(s, [
       "Open with the prediction question and emphasize that this is a retrospective academic prototype.",
-      "The presentation follows the complete machine-learning lifecycle from data construction to governance.",
+      "The presentation follows the machine-learning workflow from data construction to governance. Current verification covers installation and saved-model inference; raw-data retraining could not run after HTTP 403 from source acquisition.",
     ]);
   }
 
   // 2. Framing
   {
     const s = newSlide(p);
-    addSlideTitle(s, "Clinical prediction question and success criteria", "A supervised binary-classification task with a fixed prediction boundary");
+    addSlideTitle(s, "Prediction question and evaluation measures", "A supervised binary-classification task with a fixed prediction boundary");
     textBox(s, "Can information available near the start of haemodialysis identify sessions that later record systolic blood pressure below 90 mmHg?", { left: 82, top: 150, width: 1110, height: 98 }, {
       fontSize: 31,
       bold: true,
@@ -374,7 +374,7 @@ async function buildTechnicalDeck() {
   // 3. Data and cohort
   {
     const s = newSlide(p);
-    addSlideTitle(s, "HEMOBP supports a large session cohort with 830 independent patients", "Public longitudinal data link patient, session, and monitor records");
+    addSlideTitle(s, "HEMOBP cohort and eligibility", "Public longitudinal data link patient, session, and monitor records");
     const chart = s.charts.add("bar", {
       position: { left: 64, top: 152, width: 710, height: 430 },
       categories: [
@@ -426,7 +426,8 @@ async function buildTechnicalDeck() {
       bold: true,
       color: C.ink2,
     });
-    addSource(s, "Source: HEMOBP v3 and DIAL-ALERT cohort_flow.json");
+    textBox(s, "Eligibility: baseline SBP ≥90, two later measurement minutes, last dialysis minute ≥120", { left: 76, top: 602, width: 1130, height: 38 }, { fontSize: 21, color: C.ink2 });
+    addSource(s, "Minute 120 is elapsed dialysis time, not 120 minutes after the index reading");
     addFooter(s, "DIAL-ALERT technical presentation", 3);
     addNotes(s, [
       "The analytic unit is a session, while the effective independent sample is the patient.",
@@ -533,7 +534,7 @@ async function buildTechnicalDeck() {
   // 6. Model comparison
   {
     const s = newSlide(p);
-    addSlideTitle(s, "Random forest balances ranking and probability quality", "Selection rule: highest grouped-CV average precision, then lower validation Brier score within 0.01");
+    addSlideTitle(s, "Why random forest was selected", "Selection rule: highest grouped-CV average precision, then lower validation Brier score within 0.01");
     const chart = s.charts.add("bar", {
       position: { left: 58, top: 148, width: 760, height: 455 },
       categories: [
@@ -598,6 +599,7 @@ async function buildTechnicalDeck() {
     });
     addSource(s, "Source: model_comparison.csv and final_test_metrics.json");
     addFooter(s, "DIAL-ALERT technical presentation", 6);
+    textBox(s, "PCA and prevalence baseline are comparison benchmarks outside the final selection pool", { left: 76, top: 608, width: 1110, height: 32 }, { fontSize: 18, color: C.muted });
     addNotes(s, [
       "Seven configurations include linear, tree, boosted, PCA, embedded-selection, and prevalence baselines.",
       "The locked selection rule considers ranking first and probability quality when models are practically tied.",
@@ -611,7 +613,7 @@ async function buildTechnicalDeck() {
   // 7. Test performance
   {
     const s = newSlide(p);
-    addSlideTitle(s, "Held-out performance shows strong discrimination and modest precision", "Locked assessment on 21,354 sessions from 170 previously unseen patients");
+    addSlideTitle(s, "Test performance and uncertainty", "Locked assessment on 21,354 sessions from 170 previously unseen patients");
     await addPng(s, "test_performance_intervals.png", { left: 58, top: 145, width: 760, height: 470 }, "Patient-cluster confidence intervals for final test metrics");
     addBigMetric(s, "0.852", "ROC AUC", 858, 150, 300, C.teal);
     addBigMetric(s, "0.395", "average precision", 858, 268, 300, C.purple);
@@ -633,7 +635,7 @@ async function buildTechnicalDeck() {
   // 8. Capacity
   {
     const s = newSlide(p);
-    addSlideTitle(s, "Alert capacity determines the coverage and workload trade-off", "Ranking utility shown across the proportion of sessions selected for review");
+    addSlideTitle(s, "Review capacity and event detection", "Ranking utility shown across the proportion of sessions selected for review");
     const capacities = ["5", "10", "15", "20", "25", "30", "35", "40", "45", "50"];
     const chart = s.charts.add("line", {
       position: { left: 58, top: 155, width: 790, height: 430 },
@@ -683,10 +685,10 @@ async function buildTechnicalDeck() {
     addLabelValue(s, "Positive predictive value", "29.4%", 900, 332, 270, { fontSize: 37, bold: true, color: C.coral, height: 46 });
     addLabelValue(s, "Lift over prevalence", "3.46×", 900, 436, 270, { fontSize: 37, bold: true, color: C.purple, height: 46 });
     textBox(s, "14.1 false alerts per 100 sessions", { left: 900, top: 548, width: 280, height: 56 }, { fontSize: 20, bold: true, color: C.red });
-    addSource(s, "Capacity ranking is distinct from the fixed-threshold operating point");
+    addSource(s, "Separate fixed threshold 0.143: 18.35% flagged, 66.1% sensitivity, 30.6% precision");
     addFooter(s, "DIAL-ALERT technical presentation", 8);
     addNotes(s, [
-      "The unit can choose review capacity based on staffing and the relative cost of missed events and false alerts.",
+      "The highest-risk 20% analysis ranks a retrospective batch. A local batch window and tie rule must be defined before live use. At the separate fixed threshold 0.143, 18.35% of test sessions are flagged, sensitivity is 66.1%, precision 30.6%, and false alerts 12.73 per 100 sessions.",
       "At 20% capacity the model identifies about 69% of observed events, but most reviewed sessions do not have the event.",
       "No clinical benefit follows automatically from ranking performance. A prospective intervention study is required.",
     ], [
@@ -697,7 +699,7 @@ async function buildTechnicalDeck() {
   // 9. Explainability
   {
     const s = newSlide(p);
-    addSlideTitle(s, "Prior haemodynamic instability drives most predicted risk", "Aggregate SHAP with a separately declared synthetic local scenario");
+    addSlideTitle(s, "Model explanations and their limits", "Aggregate SHAP with a separately declared synthetic local scenario");
     await addPng(s, "step5_shap_summary.png", { left: 54, top: 142, width: 780, height: 485 }, "Aggregate approximate SHAP importance for the DIAL-ALERT random forest");
     textBox(s, "Consistent signals", { left: 870, top: 160, width: 300, height: 30 }, { fontSize: 24, bold: true, color: C.teal });
     richTextBox(s, [
@@ -726,7 +728,7 @@ async function buildTechnicalDeck() {
   // 10. Fairness
   {
     const s = newSlide(p);
-    addSlideTitle(s, "Reweighting improves recorded-sex gaps but does not resolve fairness", "Held-out fairness metrics must be reviewed with clinical utility and uncertainty");
+    addSlideTitle(s, "Fairness mitigation results", "Held-out fairness metrics must be reviewed with clinical utility and uncertainty");
     await addPng(s, "step5_mitigation_tradeoff.png", { left: 54, top: 142, width: 1170, height: 360 }, "Comparison of fairness mitigation strategies and average precision");
     const xs = [76, 450, 824];
     const heads = ["Reweighting retained", "Threshold strategy rejected", "Unmeasured fairness"];
@@ -755,15 +757,15 @@ async function buildTechnicalDeck() {
   // 11. Reproducibility
   {
     const s = newSlide(p);
-    addSlideTitle(s, "The analysis is reproducible from source data to locked model", "Configurations, partitions, trained pipelines, metrics, and integrity hashes are saved");
+    addSlideTitle(s, "Reproduction instructions and verification status", "Saved-model inference verified; full training reproduction blocked at source download");
     textBox(s, "Project structure", { left: 76, top: 154, width: 400, height: 34 }, { fontSize: 25, bold: true, color: C.teal });
     const treeLines = [
-      ["data/raw", "Public HEMOBP source files"],
+      ["data/raw", "Download locally; excluded from Git"],
       ["data/processed", "Leakage-controlled session table"],
       ["src", "Build, train, evaluate, audit, and report scripts"],
       ["configs", "Seeds, features, CV, bootstrap, capacity"],
-      ["models", "Candidate and selected pipelines with manifest"],
-      ["artifacts", "Metrics, plots, assignments, audit outputs"],
+      ["models", "Selected predictor; candidates regenerate"],
+      ["artifacts", "Aggregate metrics; assignments regenerate"],
       ["reports", "Step 2 through Step 6 deliverables"],
     ];
     treeLines.forEach(([folder, desc], i) => {
@@ -776,8 +778,8 @@ async function buildTechnicalDeck() {
     textBox(s, "Reproduction sequence", { left: 850, top: 154, width: 340, height: 34 }, { fontSize: 25, bold: true, color: C.teal });
     const commands = [
       "build_session_dataset.py",
-      "generate_eda.py",
       "train_evaluate.py",
+      "generate_eda.py",
       "audit_bias_fairness.py",
     ];
     commands.forEach((cmd, i) => {
@@ -797,8 +799,8 @@ async function buildTechnicalDeck() {
     addFooter(s, "DIAL-ALERT technical presentation", 11);
     addNotes(s, [
       "This slide connects the analytic results to the rubric requirement for saved configurations and artifacts.",
-      "The patient split assignments, model threshold, package versions, and hashes support auditability.",
-      "The public source data remain subject to their original license and citation requirements.",
+      "Patient-level assignments regenerate locally. The shipped model, threshold, configuration and aggregate metrics support auditability. Source download returned HTTP 403 in the fresh-environment check; training reproduction remains incomplete.",
+      "The public source data remain subject to their original license and citation requirements. The manifest separates shipped files from historical generated candidates. Presentation rebuilding requires the external authoring runtime; see docs/reproduction_guide.md.",
     ]);
   }
 
@@ -884,7 +886,7 @@ async function buildBusinessDeck() {
   // 2. Executive decision
   {
     const s = newSlide(p, true);
-    addSlideTitle(s, "The model concentrates risk, but deployment evidence is incomplete", "Internal test performance supports a governed pilot decision", { dark: true, accent: C.gold });
+    addSlideTitle(s, "Potential value and remaining evidence", "Internal test performance supports a governed pilot decision", { dark: true, accent: C.gold });
     textBox(s, "69.1%", { left: 72, top: 155, width: 430, height: 120 }, { fontSize: 92, bold: true, color: C.white });
     textBox(s, "of observed events appear in the highest-risk 20% of sessions", { left: 76, top: 278, width: 500, height: 90 }, { fontSize: 29, color: C.pale });
     vRule(s, 638, 158, 230, "#3A5268", 2);
@@ -906,7 +908,7 @@ async function buildBusinessDeck() {
   // 3. Workflow
   {
     const s = newSlide(p);
-    addSlideTitle(s, "DIAL-ALERT adds a review signal to the existing dialysis workflow", "The clinician retains responsibility for assessment and action");
+    addSlideTitle(s, "Proposed workflow for clinician review", "The clinician retains responsibility for assessment and action");
     const steps = [
       ["1", "Session begins", "Index data available within the first 30 minutes", C.tealPale],
       ["2", "Risk score", "Model estimates later SBP below 90 mmHg", "#D9E8F3"],
@@ -946,7 +948,7 @@ async function buildBusinessDeck() {
   // 4. Evidence base
   {
     const s = newSlide(p);
-    addSlideTitle(s, "The evidence base is large by session count and narrow by setting", "Public HEMOBP data provide strong longitudinal depth from one retrospective source");
+    addSlideTitle(s, "Evidence from one retrospective setting", "Public HEMOBP data provide strong longitudinal depth from one retrospective source");
     await addPng(s, "cohort_flow.png", { left: 54, top: 146, width: 690, height: 465 }, "DIAL-ALERT cohort construction");
     addBigMetric(s, "106,758", "eligible sessions", 806, 150, 330, C.teal);
     addBigMetric(s, "830", "unique patients", 806, 266, 330, C.purple);
@@ -969,7 +971,7 @@ async function buildBusinessDeck() {
   // 5. Operational impact per 100 sessions
   {
     const s = newSlide(p);
-    addSlideTitle(s, "At 20% review capacity, 5.9 observed events concentrate in the alert group", "Expected counts per 100 sessions in the internal test population");
+    addSlideTitle(s, "Workload at 20% review capacity", "Expected counts per 100 sessions in the internal test population");
     const capture = s.charts.add("doughnut", {
       position: { left: 65, top: 170, width: 500, height: 350 },
       categories: ["Captured in alert group", "Outside alert group"],
@@ -988,6 +990,7 @@ async function buildBusinessDeck() {
       plotAreaFill: C.paper,
       plotAreaLine: { fill: "none", width: 0 },
     });
+    capture.hasLegend = false;
     styleChart(capture);
     const reviews = s.charts.add("doughnut", {
       position: { left: 715, top: 170, width: 500, height: 350 },
@@ -1007,7 +1010,10 @@ async function buildBusinessDeck() {
       plotAreaFill: C.paper,
       plotAreaLine: { fill: "none", width: 0 },
     });
+    reviews.hasLegend = false;
     styleChart(reviews);
+    textBox(s, "Teal: captured 69.1%    Gray: missed 30.9%", { left: 75, top: 491, width: 565, height: 32 }, { fontSize: 18, color: C.ink2 });
+    textBox(s, "Coral: event 29.4%    Gold: no event 70.6%", { left: 698, top: 491, width: 530, height: 32 }, { fontSize: 18, color: C.ink2 });
     textBox(s, "8.5 observed events", { left: 120, top: 530, width: 390, height: 38 }, { fontSize: 25, bold: true, color: C.teal, align: "center" });
     textBox(s, "20 alert reviews", { left: 770, top: 530, width: 390, height: 38 }, { fontSize: 25, bold: true, color: C.coral, align: "center" });
     textBox(s, "These counts describe retrospective concentration of events. They do not estimate events prevented by clinical action.", { left: 130, top: 592, width: 1020, height: 44 }, { fontSize: 21, bold: true, color: C.red, align: "center" });
@@ -1025,7 +1031,7 @@ async function buildBusinessDeck() {
   // 6. ROI
   {
     const s = newSlide(p);
-    addSlideTitle(s, "ROI depends on clinical effect, not model accuracy alone", "The pilot should estimate benefits and costs before any investment claim");
+    addSlideTitle(s, "ROI measurement framework", "The pilot should estimate benefits and costs before any investment claim");
     box(s, { left: 72, top: 148, width: 1136, height: 104 }, "#E8F2F0", "none", 0, 10);
     textBox(s, "Net value = events avoided × cost of an avoidable event − review labor − intervention cost − integration and monitoring", { left: 105, top: 176, width: 1070, height: 58 }, {
       fontSize: 28,
@@ -1070,7 +1076,7 @@ async function buildBusinessDeck() {
   // 7. Risk and fairness
   {
     const s = newSlide(p);
-    addSlideTitle(s, "The main risks are clinical, operational, and equity related", "Fairness varies by metric and several protected attributes are unavailable");
+    addSlideTitle(s, "Clinical, workload and fairness risks", "Fairness varies by metric and several protected attributes are unavailable");
     textBox(s, "Risk register", { left: 66, top: 150, width: 330, height: 34 }, { fontSize: 25, bold: true, color: C.teal });
     const risks = [
       ["Missed high-risk session", "False negatives remain at every threshold"],
@@ -1144,26 +1150,26 @@ async function buildBusinessDeck() {
   // 9. 90-day pilot
   {
     const s = newSlide(p);
-    addSlideTitle(s, "A 90-day pilot can answer the deployment question", "Progression depends on evidence at the end of each phase");
+    addSlideTitle(s, "Proposed pilot phases and feasibility targets", "Progression depends on evidence at the end of each phase");
     const phases = [
-      ["Weeks 0–4", "Local retrospective validation", "Rebuild features, check data quality, assess calibration, capacity, subgroups, and missingness", "Gate: model and data fit for observation"],
-      ["Weeks 5–8", "Prospective silent mode", "Generate scores without showing clinicians. Measure volume, latency, drift, and workflow timing", "Gate: technically reliable and operationally feasible"],
-      ["Weeks 9–12", "Supervised pilot", "Show alerts only if prior gates pass. Record review time, action, overrides, safety, and patient outcomes", "Gate: benefit warrants a larger evaluation"],
+      ["Weeks 0–4", "Local validation", "Check features, calibration, subgroup errors and workload"],
+      ["Weeks 5–8", "Silent evaluation", "Score without displaying alerts; time simulated reviews"],
+      ["Weeks 9–12", "Conditional supervised study", "Proceed only after agreed safety and governance gates"],
     ];
-    phases.forEach(([period, head, body, gate], i) => {
-      const x = 62 + i * 405;
-      box(s, { left: x, top: 168, width: 365, height: 424 }, i === 0 ? "#E8F2F0" : i === 1 ? "#E8EEF4" : "#F7E8DF", "none", 0, 10);
-      textBox(s, period, { left: x + 28, top: 194, width: 300, height: 30 }, { fontSize: 18, bold: true, color: i === 2 ? C.coral : C.teal });
-      textBox(s, head, { left: x + 28, top: 242, width: 305, height: 70 }, { fontSize: 26, bold: true, color: C.ink });
-      rule(s, x + 28, 326, 305, i === 2 ? C.coral : C.teal2, 3);
-      textBox(s, body, { left: x + 28, top: 350, width: 305, height: 140 }, { fontSize: 19, color: C.ink2 });
-      textBox(s, gate, { left: x + 28, top: 512, width: 305, height: 62 }, { fontSize: 18, bold: true, color: i === 2 ? C.red : C.green });
+    phases.forEach(([period, head, body], i) => {
+      const y = 165 + i * 103;
+      textBox(s, period, { left: 80, top: y, width: 175, height: 42 }, { fontSize: 24, bold: true, color: C.teal });
+      textBox(s, head, { left: 275, top: y, width: 890, height: 38 }, { fontSize: 26, bold: true, color: C.ink });
+      textBox(s, body, { left: 275, top: y+43, width: 890, height: 40 }, { fontSize: 22, color: C.ink2 });
     });
-    textBox(s, "Pre-register performance, workload, equity, and safety criteria before the pilot begins.", { left: 78, top: 620, width: 1120, height: 34 }, { fontSize: 22, bold: true, color: C.ink, align: "center" });
+    textBox(s, "Draft targets for a future fixed-threshold evaluation", { left: 80, top: 495, width: 1100, height: 38 }, { fontSize: 25, bold: true, color: C.teal });
+    textBox(s, "Sensitivity ≥65%, ≤20 alerts and ≤15 false alerts per 100 sessions", { left: 80, top: 542, width: 1100, height: 36 }, { fontSize: 23, color: C.ink });
+    textBox(s, "Median active review ≤2 min per alert; local approval and uncertainty review required", { left: 80, top: 582, width: 1120, height: 50 }, { fontSize: 22, color: C.ink2 });
+    addSource(s, "Post-study proposals, not achieved results or approved standards; docs/evaluation_protocol.md");
     addFooter(s, "DIAL-ALERT executive presentation", 9);
     addNotes(s, [
-      "The plan deliberately separates technical validation from clinical exposure.",
-      "Silent mode shows whether data arrive on time and whether the score behaves as expected without creating patient risk.",
+      "The 90-day schedule is illustrative and conditional. Targets were drafted after the retrospective study and were not original prespecified study criteria. They concern feasibility, not demonstrated clinical benefit. Clinical and operational leads must approve the strategy, sample size, confidence-interval requirements and stop rules before collecting pilot outcomes.",
+      "Silent mode evaluates data delivery and score behavior without displaying alerts. Time review work in simulation first. The separate draft total-review budget is at most 40 minutes per 100 sessions. A median of two minutes does not imply a two-minute mean; measure total time and tail times directly.",
       "The supervised pilot begins only if external validity, operational feasibility, privacy, and equity gates pass.",
     ]);
   }
@@ -1171,7 +1177,7 @@ async function buildBusinessDeck() {
   // 10. Decision
   {
     const s = newSlide(p, true);
-    addSlideTitle(s, "Decision requested: approve validation, not clinical deployment", "The next investment should reduce uncertainty before introducing live alerts", { dark: true, accent: C.gold });
+    addSlideTitle(s, "Decision requested: further validation", "The next investment should reduce uncertainty before introducing live alerts", { dark: true, accent: C.gold });
     textBox(s, "Approve", { left: 78, top: 165, width: 240, height: 42 }, { fontSize: 30, bold: true, color: C.teal2 });
     const approve = [
       "A local data and validation partner",

@@ -1,0 +1,56 @@
+{
+  "source_commit": "e1330231bba9ff4ff85bf051c1baa322f3e55951",
+  "environment": {
+    "python": "3.12.14",
+    "packages": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "joblib": "1.5.3",
+      "matplotlib": "3.10.8",
+      "python-docx": "1.2.0",
+      "pytest": "8.4.2"
+    }
+  },
+  "checks": [
+    {
+      "command": "uv venv --python 3.12 <fresh-environment>",
+      "status": "passed"
+    },
+    {
+      "command": "uv pip install --python <fresh-environment>/bin/python -r requirements.txt",
+      "status": "passed"
+    },
+    {
+      "command": "python -m pytest -q",
+      "status": "passed",
+      "tests": 11
+    },
+    {
+      "command": "python -m unittest discover -s step9_genai/tests -v",
+      "status": "passed",
+      "tests": 12
+    },
+    {
+      "command": "python src/predict.py --input examples/synthetic_session.csv --output predictions.csv",
+      "status": "passed",
+      "synthetic_probability": 0.06264385529386092,
+      "synthetic_flag": 0
+    },
+    {
+      "command": "python src/download_data.py",
+      "status": "blocked",
+      "exit_code": 1,
+      "error": "HTTP Error 403: Forbidden while acquiring d1.csv"
+    },
+    {
+      "command": "build_session_dataset.py -> train_evaluate.py -> downstream audits",
+      "status": "not_run",
+      "reason": "Verified raw source files were unavailable after acquisition failure"
+    }
+  ],
+  "model_sha256": "efb0f4d44b6569838259728d164b22e87e43bd73f058882a8491aba82639aa75",
+  "threshold_sha256": "b161b72504cdedbd9dac3e485cc69014d53c4c92b7d4d3c785d537933ed10deb",
+  "claim": "Fresh environment installation and saved-model inference verified. Full raw-data-to-training reproduction not completed."
+}

@@ -13,5 +13,5 @@ Patient-days with index record,108781,Required at least one record after the ind
 Sessions with post-index records,108680,Applied sequential outcome-eligibility criteria
 Sessions removed for baseline SBP below 90,1375,Excluded prevalent hypotension at prediction time
 Sessions removed for fewer than two later minutes,116,Reduced false negatives from sparse follow-up
-Sessions removed for follow-up below 120 minutes,431,Reduced false negatives from truncated observation
+Sessions removed because last dialysis minute was below 120,431,Reduced false negatives from truncated observation
 Final eligible sessions,106758,Used for EDA and modelling

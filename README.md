@@ -8,16 +8,18 @@ DIAL-ALERT is an end-to-end machine-learning capstone that estimates the risk of
 
 The selected random-forest pipeline was evaluated once on 21,354 sessions from 170 patients who were excluded from model fitting and threshold selection.
 
-| Measure | Locked test result |
+| Measure | Locked test result (95% CI) |
 | --- | ---: |
-| Average precision | 0.395 |
-| ROC AUC | 0.852 |
-| Brier score | 0.062 |
-| Sensitivity at threshold 0.143 | 66.1% |
-| Specificity at threshold 0.143 | 86.1% |
-| Precision at threshold 0.143 | 30.6% |
-| Recall within the highest-risk 20% of sessions | 69.1% |
-| Lift within the highest-risk 20% | 3.46 |
+| Average precision | 0.395 (0.306–0.478) |
+| ROC AUC | 0.852 (0.821–0.876) |
+| Brier score | 0.062 (0.049–0.077) |
+| Sensitivity at threshold 0.143 | 66.1% (55.0%–74.5%) |
+| Specificity at threshold 0.143 | 86.1% (80.6%–90.3%) |
+| Precision at threshold 0.143 | 30.6% (26.0%–35.3%) |
+| Recall within the highest-risk 20% of sessions | 69.1% (63.2%–74.4%) |
+| Lift within the highest-risk 20% | 3.456 (3.159–3.717) |
+
+Intervals use 500 patient-cluster bootstrap resamples. The test set contains **170 patients**, not 21,354 independent observations.
 
 These are retrospective prediction results. They do not show that an alert prevents hypotension, improves outcomes, or saves money.
 
@@ -49,6 +51,16 @@ Raw and processed data are intentionally excluded from Git because the largest s
 | `reports/` | Final report, component reports, and audience-specific presentations |
 | `tests/` | Repository and inference smoke tests |
 | `.github/workflows/` | Automated test workflow |
+
+## Evaluation definitions and verification
+
+Eligibility requires a later observation at or beyond **dialysis minute 120**, not 120 minutes after the index observation. See [evaluation definitions and proposed future pilot targets](docs/evaluation_protocol.md) for the complete rule and the distinction between the 0.143 threshold and highest-risk 20% ranking. Pilot targets are draft feasibility proposals made after this study, not original study success criteria.
+
+Fresh-environment installation, tests and saved-model inference were verified. Raw-data acquisition returned HTTP 403, so a complete training reproduction was **not completed** during this verification. See the [execution record](docs/reproducibility_record.md), [reproduction guide](docs/reproduction_guide.md), and [optional deliverable status](docs/optional_deliverables.md).
+
+## Additional analyses and future validation
+
+[Items 9–17: analysis and validation plan](docs/additional_analysis_plan.md) separates planned sensitivity analyses from completed results. New patient-level analyses remain pending verified source-data access. Current fairness mitigation results are exploratory and need confirmation on fresh data. No repeated tuning against the existing test set is planned.
 
 ## Quick start
 
@@ -94,10 +106,10 @@ The notebook `notebooks/01_reproducible_workflow.ipynb` presents the same sequen
 The repository includes the selected predictor. Input CSV files must contain the 22 fields listed in `models/decision_threshold.json`.
 
 ```bash
-python src/predict.py --input new_sessions.csv --output predictions.csv
+python src/predict.py --input examples/synthetic_session.csv --output predictions.csv
 ```
 
-The output adds `dial_alert_probability` and `dial_alert_flag`. A flag means that the estimated risk exceeds the validation-selected operating threshold; it is not a diagnosis or treatment recommendation.
+The bundled example is synthetic. Replace it with an appropriately prepared input CSV for other research cases. The output adds `dial_alert_probability` and `dial_alert_flag`. A flag means that the estimated risk exceeds the validation-selected operating threshold; it is not a diagnosis or treatment recommendation.
 
 ## Validation design
 
@@ -106,7 +118,7 @@ The output adds `dial_alert_probability` and `dial_alert_flag`. A flag means tha
 - Test: 21,354 sessions from 170 patients
 - Patient overlap across partitions: zero
 - Model search: three-fold grouped cross-validation on training patients
-- Model selection: grouped-CV average precision, with validation Brier score as the prespecified tie-breaker
+- Model selection: among eligible candidates within 0.01 of the best grouped-CV average precision, lower validation Brier score; dummy and PCA benchmarks are excluded from the final selection pool
 - Threshold selection: maximum F2 score on validation patients only
 - Uncertainty: 500 bootstrap resamples of whole test patients
 
@@ -124,7 +136,7 @@ Outcome-by-sex reweighting improved some recorded-sex disparity measures with es
 
 - Configuration and random seeds are stored in `configs/model_config.json`.
 - Model hashes and software versions are stored in `models/model_manifest.json`.
-- Split assignments and all reported metrics have machine-readable artifacts.
+- Aggregate metrics are included; patient-level split assignments and candidate models are regenerated locally and excluded from Git.
 - Tests validate repository contracts and run an end-to-end inference smoke test.
 - Continuous integration executes the tests on each push and pull request.
 
@@ -138,7 +150,11 @@ Project code is released under the MIT License. HEMOBP is a separate work releas
 
 Franklin B. Guillano
 
-## Step 9: Use of Generative AI
+## Optional Steps 8 and 9
+
+The public release includes command-line inference; a complete Step 8 web-app deployment is not claimed here. See [optional deliverable status](docs/optional_deliverables.md).
+
+### Step 9: Use of Generative AI
 
 See [the Step 9 documentation, code, and examples](step9_genai/README.md) and the [63-second demo video](step9_genai/demo/DIAL_ALERT_Step9_Demo.mp4). This demonstrates AI-assisted authoring with source-linked numeric validation. The code replays a saved draft; it does not make a live LLM call or change the predictive model.
 

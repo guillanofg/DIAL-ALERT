@@ -205,7 +205,7 @@ def add_problem_section(doc: Document) -> None:
             ["Prediction time", "Earliest valid active-dialysis observation during minutes 0 to 30"],
             ["Target", "Any later systolic blood-pressure measurement below 90 mmHg"],
             ["Predictors", "Index-time variables and patient history derived only from earlier sessions"],
-            ["Exclusions", "Index SBP below 90 mmHg, inadequate later measurements, or follow-up shorter than 120 minutes"],
+            ["Exclusions", "Index SBP below 90 mmHg, inadequate later measurements, or last observed dialysis minute below 120"],
         ],
         widths=[1.65, 5.05],
         font_size=8.8,
@@ -338,7 +338,7 @@ def add_eda_section(doc: Document) -> None:
     doc.add_heading("Feature Selection and Dimensionality Reduction", level=2)
     add_body(
         doc,
-        "Embedded L1 logistic regression retained 12 of 24 transformed predictors. This candidate tested whether sparse selection could simplify the model without using test outcomes. PCA was fitted after numeric imputation and standardization; 11 components explained 87.6% of numeric-feature variance, exceeding the prespecified 85% threshold."
+        "Embedded L1 logistic regression retained 12 of 24 transformed predictors. This candidate tested whether sparse selection could simplify the model without using test outcomes. PCA was fitted after numeric imputation and standardization; 11 components explained 87.6% of numeric-feature variance, exceeding the selected 85% threshold from the 85% and 95% search options."
     )
     add_figure(
         doc,
@@ -767,6 +767,8 @@ def make_report() -> Path:
     add_references(doc)
     add_rubric_appendix(doc)
 
+    from submission_notes import append_submission_notes
+    append_submission_notes(doc)
     doc.save(OUTPUT)
     print(f"Wrote {OUTPUT}")
     return OUTPUT
