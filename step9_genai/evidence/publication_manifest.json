@@ -1,0 +1,22 @@
+{
+  "review_date": "2026-09-18",
+  "files": {
+    "DIAL_ALERT_Step9_Report.pdf": "e4a41bffefbc536d931118ba15413979a7cb901d13acb8ae4e46f063a2bbc6ef",
+    "README.md": "f52c9a5ea531e4595ac25b053bbcd58684efbbee8af46bae38e76ba171673722",
+    "demo/DIAL_ALERT_Step9_Demo.mp4": "286fad7cbc74abf82751aba9367ce08fccd8d0cf912972f935a70786a031607a",
+    "demo/preview.png": "bf7de0071e0df92acfdf033436b31a8715befff833481e579f315b51be610ce7",
+    "evidence/decision_threshold.json": "b161b72504cdedbd9dac3e485cc69014d53c4c92b7d4d3c785d537933ed10deb",
+    "evidence/demo_run.txt": "108cbc586bb974456e3cf3df73592f09f34607c862feb86c9ecc1e99f58d3c2c",
+    "evidence/model_card.md": "ece00f837225bd85f0d8eab7dd39385ada13343ccfdbbb131eab039cd323e17a",
+    "evidence/original_test_metrics.json": "fd183e3d3c2aca888d9bb9b7f4970b2c89028bde89133127d9f8d25a52476690",
+    "evidence/tests.txt": "c0cbbeb2858b1be82818c38c65da8f7f8a62a0da8db0d919b10c087935bbfd70",
+    "evidence/verification.md": "ebd31d6f184d183afb9e258413efc998c51fea5883e47772851d121358dc5946",
+    "examples/aggregate_facts.json": "1bbad16c709d4c245a4f6777b77481e9e4bc651c9f514fe303a8f7b5f62dfab9",
+    "examples/ai_draft.json": "ec04b63b8c293e9e9c6ad43669c6ebc6e0a23c5632712ec86e06b24f6f19957c",
+    "examples/rendered_summary.md": "caaa367c44d54cb58c9dd36c1b2d24e0204b7f9a7ebb2f4e3f3917c6a5917b3f",
+    "src/make_demo.py": "01fde4255e4e9d76cd235b47bf84424bf98d04af56e7b41cc001617aa554d0db",
+    "src/replay_summary.py": "39f01ef0e85a80edf4a27688a75b26dd04ef367c85842957aed03146e010b44a",
+    "tests/test_publication_privacy.py": "30f96de46b9866f40a3f5049725eb12b1d29e6d24b62c1d2f35c77a1f7fde599",
+    "tests/test_summary.py": "bc87b26317a3320465e804b4899e0c2b6f53583434caf859c3789bd57a15e9f2"
+  }
+}

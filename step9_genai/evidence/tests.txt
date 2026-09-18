@@ -1,0 +1,13 @@
+test_changed_cohort_rejected (test_summary.SummaryChecks.test_changed_cohort_rejected) ... ok
+test_changed_metric_rejected (test_summary.SummaryChecks.test_changed_metric_rejected) ... ok
+test_invented_number_rejected (test_summary.SummaryChecks.test_invented_number_rejected) ... ok
+test_missing_review_status_rejected (test_summary.SummaryChecks.test_missing_review_status_rejected) ... ok
+test_record_field_rejected (test_summary.SummaryChecks.test_record_field_rejected) ... ok
+test_unknown_placeholder_rejected (test_summary.SummaryChecks.test_unknown_placeholder_rejected) ... ok
+test_unsupported_prose_remains_a_human_review_task (test_summary.SummaryChecks.test_unsupported_prose_remains_a_human_review_task) ... ok
+test_valid_saved_example (test_summary.SummaryChecks.test_valid_saved_example) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+OK

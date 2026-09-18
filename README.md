@@ -137,3 +137,8 @@ Project code is released under the MIT License. HEMOBP is a separate work releas
 ## Author
 
 Franklin B. Guillano
+
+## Step 9: Use of Generative AI
+
+See [the Step 9 documentation, code, and examples](step9_genai/README.md) and the [63-second demo video](step9_genai/demo/DIAL_ALERT_Step9_Demo.mp4). This demonstrates AI-assisted authoring with source-linked numeric validation. The code replays a saved draft; it does not make a live LLM call or change the predictive model.
+

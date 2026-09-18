@@ -1,0 +1,9 @@
+{
+  "status": "AI-drafted example; investigator review pending",
+  "paragraphs": [
+    "The analytic cohort contains {cohort_sessions:,} dialysis sessions from {cohort_patients:,} patients. The recorded event prevalence is {event_prevalence_pct:.2f}%. Events are therefore less common than non-events, so accuracy alone would be an incomplete description of prediction performance.",
+    "The number of sessions is much larger than the number of patients because patients contribute repeated sessions. The project keeps each patient's sessions within one partition. The held-out test set contains {test_sessions:,} sessions from {test_patients:,} patients.",
+    "The selected {selected_model} uses {feature_count} predictors. Its test average precision is {average_precision:.3f}, ROC AUC is {roc_auc:.3f}, and Brier score is {brier_score:.3f}. At an operating threshold of {threshold:.3f}, sensitivity is {sensitivity:.1%} and precision is {precision:.1%}. Average precision and precision at the operating threshold describe different aspects of performance.",
+    "These findings describe retrospective prediction of a later low systolic blood-pressure reading. They do not establish that alerts prevent events or improve patient outcomes. External and prospective validation are still required. This academic prototype does not provide treatment recommendations."
+  ]
+}

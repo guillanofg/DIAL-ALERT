@@ -126,3 +126,4 @@ def test_office_packages_have_no_assistant_or_exporter_identity() -> None:
             assert marker not in package_xml, f"{marker!r} found in {path.name}"
         if path.suffix.lower() == ".pptx":
             assert "Franklin B. Guillano" in package_xml
+

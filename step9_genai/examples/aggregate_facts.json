@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "dataset": "HEMOBP Version 3",
+  "cohort_sessions": 106758,
+  "cohort_patients": 830,
+  "event_prevalence_pct": 8.49,
+  "test_sessions": 21354,
+  "test_patients": 170,
+  "selected_model": "Random forest",
+  "threshold": 0.1428558780357408,
+  "feature_count": 22,
+  "average_precision": 0.3947805460447429,
+  "roc_auc": 0.852459701581806,
+  "brier_score": 0.06211521483278726,
+  "sensitivity": 0.6609702315325248,
+  "precision": 0.3060234813680449
+}
