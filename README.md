@@ -145,7 +145,7 @@ The repository now contains a local Flask inference package in `step8_deployment
 
 The [local project Q&A assistant](step9_assistant/README.md) uses Ollama and `llama3.2:3b` to generate source-linked project explanations. See the [report](step9_assistant/docs/GENAI_REPORT.md), [code](step9_assistant/src/), [examples](step9_assistant/examples/), and [live review](step9_assistant/evidence/LIVE_REVIEW.md).
 
-Live generation was demonstrated on the author's Mac. Citation and numeric checks do not establish semantic correctness; the review records observed answer-quality issues. Video and presentation upload is in progress. The [earlier saved-draft demonstration](step9_genai/README.md) remains available.
+Live generation was demonstrated on the author's Mac. Citation and numeric checks do not establish semantic correctness; the review records observed answer-quality issues. See the [46-second live demo (edited excerpts)](step9_assistant/demo/DIAL_ALERT_Step9_Live_Demo.mp4) and [presentation](step9_assistant/docs/DIAL_ALERT_Step9_Project_Assistant.pptx). The [earlier saved-draft demonstration](step9_genai/README.md) remains available.
 
 
 ## Limitations

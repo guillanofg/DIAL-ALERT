@@ -18,3 +18,5 @@ The recording supports that the live browser generation workflow ran. It does no
 Original time intervals retained: [0,13), [36,41.5), [56,86). Nominal selected duration: 48.5 seconds. The exported video is additionally tail-trimmed to 46 seconds to exclude the window transition at its end. Original playback speed retained. No narration, synthesized answers or replacement answer text added. Only a title identifying edited excerpts is added. Surrounding margins are cropped for readability. Unrelated windows and extended idle sections are excluded. The original remains unchanged and is not bundled.
 
 The threshold request-to-answer sequence is continuous. The limitations request and later result are separated by a visible cut, which is not latency evidence. This is a concise functional demonstration with identified answer-quality limits.
+
+The repository video is compressed to 2 frames per second at the same duration and resolution. This reduces file size; no answer text was changed.
