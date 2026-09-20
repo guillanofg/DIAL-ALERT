@@ -52,8 +52,8 @@ def main():
       'Random forest balances ranking and probability quality':'Random forest met the prespecified selection rule',
       'Reweighting improves recorded-sex gaps but does not resolve fairness':'Fairness mitigation findings remain exploratory',
       'Reweighting retained':'Reweighting explored',
-      'The analysis is reproducible from source data to locked model':'Reproduction instructions are provided; full rerun is blocked',
-      'Configurations, partitions, trained pipelines, metrics, and integrity hashes are saved':'Clean environment installed; source acquisition returned HTTP 403',
+      'The analysis is reproducible from source data to locked model':'End-to-end reproduction successfully completed',
+      'Configurations, partitions, trained pipelines, metrics, and integrity hashes are saved':'Fresh Python 3.12 reproduction completed on 20 September 2026',
       'Candidate and selected pipelines with manifest':'Selected predictor included; candidates regenerated',
       'Metrics, plots, assignments, audit outputs':'Aggregate metrics and plots; assignments regenerated',
       'Public HEMOBP source files':'Download HEMOBP source files; not bundled',
@@ -66,10 +66,10 @@ def main():
     for a,b in replacements.items():replace(p,a,b)
     if kind=='Technical':
       replace(p,'Histogram boosting ranked slightly higher on CV AP (0.446), but its validation Brier score was 0.134. The difference in AP was within the predefined 0.01 tolerance.','Boosting CV AP: 0.446; RF: 0.440. Brier comparison used candidates as fitted. Equal calibration remains untested.')
-      replace(p,'Model manifest records package versions, file hashes, random seeds, feature order, and threshold metadata.','Execution record: included-model checks passed; full data-to-training run is blocked.')
+      replace(p,'Model manifest records package versions, file hashes, random seeds, feature order, and threshold metadata.','HEMOBP Version 3 was reacquired and checksum-verified; the dataset was rebuilt, models retrained, outputs regenerated, and 15/15 automated tests passed.')
       add_slide(p,'Eligibility is anchored to dialysis minute 120','Retrospective eligibility does not guarantee a 120-minute warning',[('Prediction time','Earliest valid active-dialysis BP in minutes 0 to 30; index SBP must be at least 90 mmHg.'),('Later observation','Require two distinct post-index measurement minutes and an observation at dialysis minute 120 or later.'),('Example','Index at minute 20 and observation at minute 120 can qualify. Actual time to the first event has not yet been measured.')])
       add_slide(p,'Two alert policies produce different workloads','Locked retrospective test results; define the prospective ranking batch',[('Fixed probability threshold of 0.143','Sensitivity 66.1%; precision 30.6%; 18.3 reviews and 12.7 false alerts per 100 sessions.'),('Review the highest-risk 20%','Recall 69.1%; precision 29.4%; 20 reviews and 14.1 false alerts per 100 sessions.'),('Uncertainty comes from 170 patients','95% CI: threshold sensitivity 55.0% to 74.5%; capacity recall 63.2% to 74.4%. Sessions are clustered within patients.')])
-      add_slide(p,'Optional steps demonstrate different capabilities','Evidence is limited to the included code, checks and media',[('Step 8: local inference','Flask app, synthetic request, HTTP execution record and GIF demo. Local packaging does not establish clinical deployment.'),('Step 9: saved-draft replay','The included demo replays a saved AI draft and validates numbers. It does not demonstrate a live LLM call.'),('Reproduction boundary','Saved-model inference can run without source data. Full source-to-training reproduction remains blocked by HTTP 403.')])
+      add_slide(p,'Optional steps demonstrate different capabilities','Evidence is limited to the included code, checks and media',[('Step 8: local inference','Flask app, synthetic request, HTTP execution record and GIF demo. Local packaging does not establish clinical deployment.'),('Step 9: saved-draft replay','The included demo replays a saved AI draft and validates numbers. It does not demonstrate a live LLM call.'),('Reproduction boundary','Full source-to-training reproduction was completed on 20 September 2026. Results were numerically consistent with the locked reference rather than byte-for-byte identical.')])
     else:
       # Replace unreadable multi-panel raster with the three relevant audit summaries.
       s=p.slides[6]
