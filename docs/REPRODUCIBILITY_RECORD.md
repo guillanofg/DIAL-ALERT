@@ -49,3 +49,7 @@ The repository automated test suite was executed after installing the Flask depe
 Flask==3.1.3 was subsequently added to requirements.txt so that future fresh-environment installations include the dependency required by the inference/application tests.
 
 Status: End-to-end data-to-training reproduction successfully completed and verified on 20 September 2026.
+
+### Numerical comparison with locked reference results
+
+The fresh reproduction was numerically consistent with the locked reference results rather than byte-for-byte identical. For the final test set, average precision was 0.3947017 versus 0.3947805, ROC AUC was 0.8521848 versus 0.8524597, Brier score was 0.0621424 versus 0.0621152, and the operating threshold was 0.1425294 versus 0.1428559. These differences were very small and did not materially alter the reported model performance or conclusions.
