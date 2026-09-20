@@ -27,7 +27,7 @@ The app originally omitted the `log1p` transform of the raw prior-session count.
 
 The fitted predictor retains SHA-256 `efb0f4d44b6569838259728d164b22e87e43bd73f058882a8491aba82639aa75`. The original model, threshold and model-selection configuration remain locked.
 
-## What remains necessary
+## Previous verification status - 18 September 2026
 
 Run [the complete sequence](ARTIFACT_INVENTORY.md#full-analysis-order) from an environment that can retrieve the publisher's fixed Version 3 data. Preserve the original metrics in a separate checkout. Verify publisher file sizes/checksums, rebuild the cohort, train with the locked configuration, generate artifacts, run tests and compare prediction outputs. Record command exits, elapsed time, package versions and numerical tolerances. Do not infer full reproducibility from successful loading of an existing model.
 
