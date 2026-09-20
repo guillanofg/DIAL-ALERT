@@ -109,7 +109,7 @@ python src/create_final_report.py
 python -m pytest -q
 ```
 
-**Verification status (18 September 2026):** a clean Python 3.12 environment installed successfully, but data acquisition returned HTTP 403. Full data-to-training reproduction is **not verified**. Included-model inference, CLI/API agreement and local HTTP execution were tested separately. See [execution record](docs/REPRODUCIBILITY_RECORD.md). Run reproduction in a separate checkout to preserve locked reference outputs.
+**Verification status (20 September 2026):** a fresh Python 3.12 end-to-end reproduction completed successfully. HEMOBP Version 3 source files were downloaded and checksum-verified, the cohort and session-level dataset were rebuilt, models were retrained and evaluated, analysis outputs were regenerated, and 15/15 automated tests passed. Reproduced test metrics were numerically consistent with the locked reference results rather than byte-for-byte identical. See [execution record](docs/REPRODUCIBILITY_RECORD.md). Run reproduction in a separate checkout to preserve locked reference outputs.
 
 ## Score new session records
 

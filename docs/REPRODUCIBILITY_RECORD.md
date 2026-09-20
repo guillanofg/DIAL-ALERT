@@ -2,7 +2,7 @@
 
 Date: 18 September 2026. Baseline repository commit: `a313a5fc7b510af5921ba049c2edbf586b3e0d72`. This record covers the submission revision based on that commit; the final revision commit contains this record and the accompanying checks.
 
-**Result: partial verification only. Full data-to-training reproduction is blocked.** The source acquisition command returned HTTP 403, so cohort reconstruction, model search, retraining, fairness reruns and numerical comparison with the original test results were not executed. No original test results were replaced or retuned.
+**Result: end-to-end reproduction verified on 20 September 2026.** A fresh Python 3.12 run reacquired and checksum-verified HEMOBP Version 3, rebuilt the cohort and session-level dataset, retrained and evaluated the models, regenerated analysis outputs, and completed 15/15 automated tests. Reproduced performance was numerically consistent with the locked reference results rather than byte-for-byte identical; the small numerical differences are documented below. The unsuccessful 18 September 2026 acquisition attempt is retained below as historical context.
 
 ## Environment and commands
 
