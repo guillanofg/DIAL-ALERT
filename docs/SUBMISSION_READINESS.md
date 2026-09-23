@@ -2,7 +2,7 @@
 
 Updated: 23 September 2026.
 
-End-to-end reproduction was completed on 20 September 2026. The final report and both presentation decks have been checked at commit 32191898a332ec96d334315ad0892652e139d4d8. Repository documentation and generation scripts are being synchronized with those deliverables. Final submission sign-off remains pending verification of those corrections.
+End-to-end reproduction was completed on 20 September 2026. The final report and both presentation decks were checked at commit 32191898a332ec96d334315ad0892652e139d4d8. Repository documentation and generation scripts were subsequently synchronized with those deliverables. The correction set was verified on 23 September 2026, including a successful GitHub Actions run after restoration of the presentation revision script and alignment of the Step 8 Flask dependency.
 
 ## Verified evidence
 
@@ -17,16 +17,13 @@ End-to-end reproduction was completed on 20 September 2026. The final report and
 | Step 8 | Local Flask inference, synthetic input, recorded HTTP evidence, and demo playback are included. This does not establish clinical or cloud deployment. |
 | Step 9 | An earlier saved-draft replay and a later live local AI assistant demonstration are included. Observed answer-quality limitations remain. Citation and numeric checks do not establish semantic correctness. |
 
-## Remaining documentation corrections
+## Final documentation verification
 
-- Synchronize the artifact inventory with the successful reproduction record and both Step 9 demonstrations.
-- Update the report revision script so rebuilding retains the current Step 9 description.
-- Update the final report generator's references and reproduction commands.
-- Update the presentation revision script's Step 9 wording and handling of already-revised decks.
-- Clarify in README_Step5.md that the reweighted model is not bundled and must be regenerated.
-- Verify these changes together before recording final submission sign-off.
+The artifact inventory, README_Step5.md, report revision script, final report generator, and presentation revision script have been synchronized with the audited deliverables and successful reproduction record.
 
-These corrections do not require model retraining.
+The presentation revision script was restored and the Step 8 Flask dependency was aligned with the main environment. The subsequent GitHub Actions workflow completed successfully, including dependency installation and repository tests.
+
+No model retraining was required for these documentation and generation-script corrections.
 
 ## Further research
 
