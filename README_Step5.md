@@ -90,3 +90,9 @@ The processed data derive from the public HEMOBP dataset described by Lin CJ, Ch
 ## Governance position
 
 DIAL-ALERT should remain decision support with accountable clinician override. Deployment requires external validation, broader protected-attribute collection with consent and governance, human-factors testing, capacity-aware alerting, subgroup calibration and error monitoring, privacy controls, documented incident response, and a rollback rule.
+
+## Availability of the reweighted model
+
+The reweighted model is a development and fairness-analysis output. It is not bundled in this repository and must be regenerated using the training and fairness-analysis scripts. See docs/ARTIFACT_INVENTORY.md for the execution order.
+
+The bundled final predictor is models/dial_alert_final_predictor.joblib. Listing the reweighted model as a deliverable does not mean its model file is included.

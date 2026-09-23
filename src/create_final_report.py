@@ -641,12 +641,13 @@ def add_repository_section(doc: Document) -> None:
         "python -m pip install -r requirements.txt",
         "python src/download_data.py",
         "python src/build_session_dataset.py --raw-dir data/raw --output-dir data/processed",
+        "python src/generate_step2_assets.py",
         "python src/train_evaluate.py --data data/processed/hemobp_session_level.csv.gz --config configs/model_config.json --artifacts artifacts --models models",
         "python src/generate_eda.py",
         "python src/generate_step4_assets.py",
         "python src/audit_bias_fairness.py",
         "python src/create_final_report.py",
-        "pytest -q",
+        "python -m pytest -q",
     ]
     p = doc.add_paragraph()
     p.paragraph_format.right_indent = Inches(0.1)
@@ -704,11 +705,11 @@ def add_references(doc: Document) -> None:
         "3. Breiman L. Random forests. Machine Learning. 2001;45:5-32. https://doi.org/10.1023/A:1010933404324",
         "4. Saito T, Rehmsmeier M. The precision-recall plot is more informative than the ROC plot when evaluating binary classifiers on imbalanced datasets. PLoS ONE. 2015;10:e0118432. https://doi.org/10.1371/journal.pone.0118432",
         "5. Lundberg SM, Lee SI. A unified approach to interpreting model predictions. Advances in Neural Information Processing Systems. 2017;30. https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions",
-        "6. Ribeiro MT, Singh S, Guestrin C. Why should I trust you Explaining the predictions of any classifier. Proceedings of KDD. 2016:1135-1144. https://doi.org/10.1145/2939672.2939778",
-        "7. Goldstein A, Kapelner A, Bleich J, Pitkin E. Peeking inside the black box Visualizing statistical learning with plots of individual conditional expectation. Journal of Computational and Graphical Statistics. 2015;24:44-65. https://doi.org/10.1080/10618600.2014.907095",
+        "6. Ribeiro MT, Singh S, Guestrin C. \"Why Should I Trust You?\": Explaining the Predictions of Any Classifier. Proceedings of KDD. 2016:1135-1144. https://doi.org/10.1145/2939672.2939778",
+        "7. Goldstein A, Kapelner A, Bleich J, Pitkin E. Peeking Inside the Black Box: Visualizing Statistical Learning With Plots of Individual Conditional Expectation. Journal of Computational and Graphical Statistics. 2015;24:44-65. https://doi.org/10.1080/10618600.2014.907095",
         "8. Hardt M, Price E, Srebro N. Equality of opportunity in supervised learning. Advances in Neural Information Processing Systems. 2016;29. https://arxiv.org/abs/1610.02413",
         "9. World Health Organization. Ethics and governance of artificial intelligence for health. 2021. https://www.who.int/publications/i/item/9789240029200",
-        "10. Collins GS and colleagues. TRIPOD plus AI statement Updated guidance for reporting clinical prediction models that use regression or machine learning methods. BMJ. 2024;385:e078378. https://doi.org/10.1136/bmj-2023-078378",
+        "10. Collins GS, Moons KGM, Dhiman P, Riley RD, Beam AL, Van Calster B, et al. TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods. BMJ. 2024;385:e078378. https://doi.org/10.1136/bmj-2023-078378",
         "11. Flythe JE, Xue H, Lynch KE, Curhan GC, Brunelli SM. Association of mortality risk with various definitions of intradialytic hypotension. Journal of the American Society of Nephrology. 2015;26:724-734. https://doi.org/10.1681/ASN.2014020222",
     ]
     for reference in references:

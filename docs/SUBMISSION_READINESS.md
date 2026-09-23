@@ -1,20 +1,43 @@
 # Submission-readiness status
 
-Revision date: 18 September 2026. Seven of the eight priority areas have implementation/documentation evidence; full fresh-environment reproduction remains blocked. The remaining research is explicitly separated from completed submission edits.
+Updated: 23 September 2026.
 
-| Priority | Result |
+End-to-end reproduction was completed on 20 September 2026. The final report and both presentation decks have been checked at commit 32191898a332ec96d334315ad0892652e139d4d8. Repository documentation and generation scripts are being synchronized with those deliverables. Final submission sign-off remains pending verification of those corrections.
+
+## Verified evidence
+
+| Area | Status |
 | --- | --- |
-| 1 Consistency | Updated report wording and report sources; corrected older EDA boosting/AP-importance numbers; synchronized presentation counts and reference metrics |
-| 2 Minute-120 eligibility | Explicit dialysis-time anchor in code comment, README, model card, report text and dedicated slide |
-| 3 Measurable targets | Proposed future targets: at least 65% detection, at most 15 false alerts per 100 sessions, median review at most 2 minutes; no prospective success claimed |
-| 4 Alert strategies | Separate threshold and capacity results, including different review and false-alert workloads |
-| 5 Fresh reproduction | **Blocked at data acquisition, HTTP 403**. New-environment install, included-model prediction, local HTTP execution and 27 tests passed; these do not establish training reproducibility |
-| 6 Documentation | Exact inventory, absent candidates/intermediates, authoring dependencies and rebuild order documented |
-| 7 Visual review | Rendered both decks; technical 16 slides, business 11. Simplified crowded fairness chart, clarified labels and added focused evidence slides. Reports rendered and PDFs refreshed |
-| 8 Optional steps | Fixed Flask inference preprocessing, tested agreement with CLI, added real HTTP evidence and labeled animated playback. Step 9 remains explicitly saved-draft replay without live generation |
+| Report and PDF | The supplied final report and PDF match the files at the audited commit. Corrected references and updated Step 9 wording are present. |
+| Eligibility | The rule requires an observation at or beyond dialysis minute 120, not 120 minutes after prediction. |
+| Proposed pilot targets | At least 65% event detection, no more than 15 false alerts per 100 eligible sessions, and median review time no longer than 2 minutes. These are proposed targets, not demonstrated prospective results. |
+| Alert strategies | The fixed probability threshold of 0.143 and highest-risk 20% review strategy are reported separately. |
+| Fresh reproduction | The execution record documents successful Python 3.12 source-data acquisition, checksum verification, cohort rebuilding, model training and evaluation, regenerated analysis outputs, and 15 passed tests on 20 September 2026. Results were numerically consistent with the locked reference, not byte-for-byte identical. |
+| Presentations | The 16-slide technical deck and 11-slide business deck were rendered and inspected. Main results agree with the report. |
+| Step 8 | Local Flask inference, synthetic input, recorded HTTP evidence, and demo playback are included. This does not establish clinical or cloud deployment. |
+| Step 9 | An earlier saved-draft replay and a later live local AI assistant demonstration are included. Observed answer-quality limitations remain. Citation and numeric checks do not establish semantic correctness. |
 
-## Additional work
+## Remaining documentation corrections
 
-Items 9–13 remain planned secondary analyses: warning time, small clinical comparator, history ablation, equally calibrated finalists, and extreme-value/short-session sensitivity. Item 14 is strengthened by prominent patient-cluster intervals and the 170-patient test denominator. See `SECONDARY_ANALYSIS_PLAN.md`.
+- Synchronize the artifact inventory with the successful reproduction record and both Step 9 demonstrations.
+- Update the report revision script so rebuilding retains the current Step 9 description.
+- Update the final report generator's references and reproduction commands.
+- Update the presentation revision script's Step 9 wording and handling of already-revised decks.
+- Clarify in README_Step5.md that the reweighted model is not bundled and must be regenerated.
+- Verify these changes together before recording final submission sign-off.
 
-Items 15–17 remain future external/temporal validation, fairness confirmation on fresh data, and staged prospective evaluation. No new dataset was supplied, no model was retuned against the existing test set, and no new clinical or financial benefit is claimed.
+These corrections do not require model retraining.
+
+## Further research
+
+Warning-time analysis, a small clinical comparator, history ablation, equally calibrated finalist comparisons, and extreme-value or short-session sensitivity analyses remain planned. See SECONDARY_ANALYSIS_PLAN.md.
+
+External or temporal validation, confirmation of fairness findings on fresh patients, and prospective workflow evaluation remain future work. No clinical benefit or financial savings have been demonstrated.
+
+## Evidence records
+
+- REPRODUCIBILITY_RECORD.md
+- ARTIFACT_INVENTORY.md
+- ../step9_assistant/evidence/LIVE_REVIEW.md
+
+The September 18 acquisition failure is historical context. It does not describe the later successful September 20 reproduction. The September 23 consistency audit did not independently repeat model training.
